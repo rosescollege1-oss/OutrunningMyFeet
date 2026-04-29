@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>London Details | Outrunning My Feet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f7dfa3;
+      --lemon: #f2d35d;
+      --cream: #fffdf6;
+      --ivory: #fff9ea;
+      --sand: #efe2bf;
+      --sage: #dce9cf;
+      --text: #4e4436;
+      --soft-text: #6d6253;
+      --white: rgba(255, 255, 255, 0.84);
+      --shadow: 0 20px 60px rgba(127, 107, 53, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 24px;
+      --radius-sm: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .page-top {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(247, 223, 163, 0.85), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.9), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(239,226,191,0.8);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand-title {
+      font-size: 2.45rem;
+      font-style: italic;
+      color: #6c5b36;
+      line-height: 0.95;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ab9452;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #655948;
+    }
+
+    nav a:hover { opacity: 0.65; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 46px;
+      align-items: center;
+      padding: 52px 0 76px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #b39748;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      color: #443a2c;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      color: var(--soft-text);
+      font-size: 1.03rem;
+      line-height: 1.95;
+      max-width: 680px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #e3d6af;
+      color: #5d5242;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .hero-card img {
+      height: 470px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      border-radius: 22px;
+      background: #fffaf0;
+      padding: 18px 20px;
+      color: #5b503f;
+      line-height: 1.8;
+    }
+
+    main section { padding: 18px 0 30px; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      color: #a88f48;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1;
+      color: #473d2e;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #efe3c4;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 6px 24px rgba(111, 92, 41, 0.04);
+    }
+
+    .overview-grid,
+    .hotel-grid,
+    .notes-grid,
+    .rating-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .overview-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .hotel-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .notes-grid { grid-template-columns: 1fr 1fr; }
+    .rating-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .info-card,
+    .soft-card,
+    .restaurant-card,
+    .day-card,
+    .rating-card {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .info-card { background: #fff9e8; }
+    .soft-card { background: #fdfbf5; border: 1px solid #efe4c7; }
+    .restaurant-card { background: #fffdf8; border: 1px solid #efe4c7; }
+    .day-card { background: #fffbef; border: 1px solid #f0e5c8; }
+    .rating-card { background: linear-gradient(180deg, #fff5d4 0%, #fffcef 100%); }
+
+    .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a38a49;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4b4030;
+    }
+
+    .soft-card h3,
+    .restaurant-card h3,
+    .day-card h3,
+    .rating-card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #483e2f;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .soft-card p,
+    .restaurant-card p,
+    .day-card p,
+    .rating-card p,
+    .soft-card li,
+    .restaurant-card li {
+      margin-top: 12px;
+      color: #655a4c;
+      line-height: 1.85;
+      font-size: 0.97rem;
+    }
+
+    ul { padding-left: 18px; }
+    .stack { display: grid; gap: 18px; }
+    .restaurant-meta { margin-top: 12px; display: grid; gap: 10px; }
+
+    .badge {
+      display: block;
+      width: fit-content;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: #fff7dc;
+      color: #6a5b3b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(127, 107, 53, 0.06);
+    }
+
+    .back-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--lemon); color: #4a3f2b; }
+    .btn-secondary { background: rgba(255,255,255,0.85); border: 1px solid #decfa3; color: #5d5242; }
+
+    footer {
+      padding: 26px 0 48px;
+      text-align: center;
+      color: #8b7f6e;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero,
+      .overview-grid,
+      .hotel-grid,
+      .notes-grid,
+      .rating-grid { grid-template-columns: 1fr; }
+      .hero { padding: 42px 0 62px; }
+      .hero-card img { height: 380px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .panel,
+      .info-card,
+      .soft-card,
+      .restaurant-card,
+      .day-card,
+      .rating-card { padding: 20px; }
+      h1 { font-size: 2.8rem; }
+      .brand-title { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <header>
+      <div class="container nav-wrap">
+        <div>
+          <div class="brand-title serif">Outrunning My Feet</div>
+          <div class="brand-subtitle">Outgrowing My Shoes</div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#stay">Stay</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#food">Food</a>
+          <a href="#favorites">Favorites</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="container hero">
+        <div>
+          <div class="eyebrow"> • London • </div>
+          <h1 class="serif">One short night in this UK capital that felt straight out of a movie.</h1>
+          <p class="hero-copy">
+            After being immersed in so many difference languages in so many different places on this trip, I can only begin to describe how good it felt to hear English again. The first menu we picked up where we knew exactly what we were ordering was like a dream come true for our tired little brains.  Don't get me wrong, getting all up in other cultures' business was kind of the whole point of this trip, but, everybody needs a break sometimes. London was elegant, cloudy, and strangely familiar. It felt like we would never be able to get a true idea of where everything was in this huge city, but we could see ourselves settling here nonetheless. 
+          </p>
+          <div class="pill-row">
+            <div class="pill">July 12–13, 2024</div>
+            <div class="pill">Greater London</div>
+            <div class="pill">City walking, iconic sights, subway rides, and pure magic</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1400&q=80" alt="London city view" />
+          <div class="hero-note">
+            Maybe it's an American thing, but British food is widely regarded as, well, beans and soggy toast and nothing more. Between the tens of thousands of steps we were taking a day, all of the plane/train/bus rides, and skipping meals to make it to the next place faster, all we wanted was some good food. We stumbled upon an underground cellar in a bout of shopping and watching a street magician and ended up having the best Chicken Kyiv either of us have ever tried. Aiden discovered his all-time favorite whiskey (but we didn't write down the name and now that information is lost to wherever the dryer puts the socks). And my chicken nachos were totally spectacular. I'm so American that my DNA is actually spelled U.S.A., but this was some darn good food.
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section id="overview">
+      <div class="container panel">
+        <h2 class="section-title serif">The quick snapshot</h2>
+        <div class="overview-grid" style="margin-top: 26px;">
+          <div class="info-card">
+            <div class="label">Dates</div>
+            <div class="value">July 12–13, 2024</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Where we stayed</div>
+            <div class="value">Greater London </div>
+          </div>
+          <div class="info-card">
+            <div class="label">Trip style</div>
+            <div class="value">Fast-paced city exploring, iconic sights, and lots of walking</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Overall rating</div>
+            <div class="value">8 / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay">
+      <div class="container panel hotel-grid">
+        <div>
+          <div class="section-eyebrow">Where we stayed</div>
+          <h2 class="section-title serif">Stay details</h2>
+          <div class="stack" style="margin-top: 24px;">
+            <div class="soft-card">
+              <h3>Hotel / Airbnb</h3>
+              <p><strong>Link:</strong> https://www.airbnb.com/rooms/1189939387184736753?guests=1&adults=1&s=67&unique_share_id=d6a69307-84f1-4dba-89d7-eba6c0618e5b</p>
+              <p><strong>Area:</strong> Shepherd’s Bush / Hammersmith</p>
+              <p><strong>What I liked:</strong> All we needed was a place to put our bodies and our bags for one night. It was an adorable place with quite a bit of room. I assumed London would have shoe box sized apartments, New York Style, but this one was plenty big enough for us. My Arkansas eyes couldn't get enough of the sight of those cute London houses and the orderly streets.</p>
+              <p><strong>What I didn’t:</strong> It should be noted that it took us nearly three hours to arrive at this airbnb from the Heathrow airport. Whether that was due to a scam artist taxi driver (we made it easy for him by falling asleep the moment we stepped into the cab) or a genuine disconnect between time and space continuum that night, we will never know.</p>
+              <div class="badge">Would I stay here again? Yes</div>
+            </div>
+
+            <div class="soft-card">
+              <h3>Booking notes</h3>
+              <ul>
+                <li><strong>Price:</strong> $108.86</li>
+                <li><strong>Best for:</strong> A quick London stop where you plan to spend most of your time out exploring. It didn't take us a terribly long time to get to the actual city area walking and it was a brilliant little stroll.</li>
+                <li><strong>Good to know:</strong> Beware of the taxi drivers</li>
+                <li><strong>Overall:</strong> A solid place to land for a very full city day</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="soft-card">
+          <h3>Getting there</h3>
+          <p><strong>Travel:</strong> Flew in from the Netherlands</p>
+          <p><strong>Travel cost:</strong> $22.00 per person, $44.00 total USD</p>
+          <p><strong>Rental car:</strong> None</p>
+          <p><strong>Arrival notes:</strong> The subway itself was easy to use, and the airport shuttle buses made it fun to see the houses and surrounding areas on the way in. We had no issues coming in as Americans, although this was 2024. Always check the current rules and regulations when traveling.</p>
+          <p><strong>Recommendation:</strong> Yes. The flight was short and simple, and I really loved using the subway once we were actually moving around the city. We definitely want to go back whenever time allows! There were so many beautiful quirks to the city. The Harry Potter store, the candy shops, Big Ben, Buckinham Palace, strolling through the city, the London Eye, the shopping centers, listening to the London Opera practice.  I could go on for days. I truly loved this city and, atleast for Americans, it was a really easy place to get around and do what we wanted to do.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container panel">
+        <div class="section-eyebrow">Photo gallery</div>
+        <h2 class="section-title serif">The pictures I want to keep with the trip</h2>
+
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80" alt="London photo placeholder 1" style="height: 260px; object-fit: cover; border-radius: 18px;" />
+            <p><strong>Caption:</strong> London felt like one long, wonderful day of turning corners and finding something iconic every few blocks.</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80" alt="London photo placeholder 2" style="height: 260px; object-fit: cover; border-radius: 18px;" />
+            <p><strong>Caption:</strong> Big red buses, old buildings, and that kind of city energy that makes you want to keep walking forever.</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=1200&q=80" alt="London photo placeholder 3" style="height: 260px; object-fit: cover; border-radius: 18px;" />
+            <p><strong>Caption:</strong> A backpack-on, slightly tired, completely enchanted kind of day.</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="https://images.unsplash.com/photo-1473959383414-a7e010f40b06?auto=format&fit=crop&w=1200&q=80" alt="London photo placeholder 4" style="height: 260px; object-fit: cover; border-radius: 18px;" />
+            <p><strong>Caption:</strong> Somehow London managed to feel theatrical, historic, and cozy all at once.</p>
+          </div>
+         </div>
+      </div>
+    </section>
+
+    <section id="food">
+      <div class="container panel">
+        <div class="section-eyebrow">Food + drink</div>
+        <h2 class="section-title serif">Where we ate and what we ordered</h2>
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <h3>Morning start</h3>
+            <div class="restaurant-meta">
+              <p><strong>What we ordered:</strong> Krispy Kreme donuts</p>
+              <p><strong>Best part:</strong> Starting the day with backpacks on and donuts in hand before heading toward Trafalgar Square just felt perfect.</p>
+              <p><strong>Would I do it again?</strong> Absolutely</p>
+              <p><strong>Notes:</strong> It was such a simple little start, but it fit the energy of the day so well. I get my love of donuts from my father, and our shared love of Homer Simpson. So, maybe I'm biased.</p>
+            </div>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>Pub stop</h3>
+            <div class="restaurant-meta">
+              <p><strong>Restaurant:</strong> Ship &amp; Shovell (we think)</p>
+              <p><strong>What we ordered:</strong> Chicken Kyiv, Nachos, The best unnamed whiskey Aiden has ever tried.</p>
+              <p><strong>Rating:</strong> 8.5 / 10</p>
+              <p><strong>Would I go back?</strong> Yes</p>
+              <p><strong>Notes:</strong> The food was genuinely delicious, and it felt like exactly the kind of meal we needed in the middle of a long day of exploring. London just did such a good job of feeling fun and comforting at the same time. Unfortunately, we couldn't find the name of the restaurant when writing this blog. From all of my google searching, I'm 99% certain it was Ship & Shovell.</p>
+            </div>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>Food notes to remember</h3>
+            <ul>
+              <li>Krispy Kreme (the one in the mall near where we stayed) either opened oddly late for a donut shop, or was unnatteneded for a large portion of the morning. There is a lego store about 20 feet away to kill some time, though.</li>
+              <li>Don't underestimate what a good pub meal can do for you after hours of walking.</li>
+              <li>Although there are a million reviews of a million London restaurants online, we really enjoyed stopping where the food smelled good from outside rather than chasing one flashy restaurant.</li>
+            </ul>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>Overall food take</h3>
+            <p>Between the donuts, the pub food, and the general rhythm of the day, London felt delicious in an easy way. While I think London could use some queso and BBQ, I think we could use some Chicken Kyiv.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel">
+        <div class="section-eyebrow">Daily notes</div>
+        <h2 class="section-title serif">What we did, day by day</h2>
+        <div class="stack" style="margin-top: 26px;">
+          <div class="day-card">
+            <h3>Day 1</h3>
+            <p><strong>Date:</strong> July 12, 2024</p>
+            <p><strong>Main plan:</strong> Arrive in London, somehow survive the very long trek to the Airbnb, and crash as soon as we got there. Unfortunately, this included the taxi driver yelling at me to get out of the car more quickly while I was searching for the birkenstock that had fallen out of the side pocket of my bag. I still miss that shoe.</p>
+            <p><strong>Best part:</strong> Honestly, just finally making it to the Airbnb after that bizarre taxi ride and knowing the real exploring could start the next morning.</p>
+            <p><strong>Worth repeating?</strong> The city, yes. The taxi situation, no.</p>
+          </div>
+
+          <div class="day-card">
+            <h3>Day 2</h3>
+            <p><strong>Date:</strong> July 13, 2024</p>
+            <p><strong>Main plan:</strong> Wake up early, throw our backpacks on, and walk through as much of London as we could — including Trafalgar Square, Big Ben, Buckingham Palace, and everything in between.</p>
+            <p><strong>Best part:</strong> The whole day. Every stretch of it felt packed with little surprises — a magic show, the opera, a sphinx statue, red buses, the Harry Potter store, and then all the major landmarks layered on top.</p>
+            <p><strong>Worth repeating?</strong> Completely</p>
+          </div>
+
+          <div class="day-card">
+            <h3>Little moments I do not want to forget</h3>
+            <p><strong>Memory:</strong> Watching the guards at Buckingham Palace, seeing Big Ben in person, and just continuing to wander as the day rolled into evening.</p>
+            <p><strong>Why it mattered:</strong> Strangely enough, even through all of the exploring we did, London was refreshing. It probably has something to do with my life long love affair with Doctor Who. I don't care. It was magical.</p>
+            <p><strong>Worth keeping?</strong> Always</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="favorites">
+      <div class="container rating-grid">
+        <div class="rating-card">
+          <h3>Favorites</h3>
+          <p><strong>Emotional moment:</strong> : London really put it into perspective to me that I was getting to see the great big world that is everything outside of Arkansas. My mother gave up her dream of traveling when I was born, so I'm just waiting for someone to create a shrinkray for me to stuff her in my pocket and take her on my adventures with me.</p>
+          <p><strong>Best view:</strong> Big Ben and the city around it ("Ole Ben", if you ask my father, who is not familiar with Mr. Ben in any way, and definitely not on a nick name basis)</p>
+          <p><strong>Best activity:</strong> Wandering from landmark to landmark with backpacks on and no desire to stop</p>
+          <p><strong>Best little moment:</strong> Realizing how nice it felt to hear English around us again while still being somewhere that felt totally special.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d recommend</h3>
+          <p>Use the subway, wear shoes you can truly walk in, and let London unfold on foot. So much of the magic came from the unexpected little things we saw between the major landmarks, not just the landmarks themselves.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d skip</h3>
+          <p>The street magicians take like an hour to actually get to the good stuff. Maybe that's obvious to everyone else. You gotta cut me a little slack, I was 19 and fresh to this world. Beyond that, London was such a hit for us. It felt packed with life in the best way.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Outrunning My Feet — London details page</div>
+  </footer>
+</body>
+</html>
