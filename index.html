@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outrunning My Feet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f7dfa3;
+      --lemon: #f2d35d;
+      --cream: #fffdf6;
+      --ivory: #fff9ea;
+      --sand: #efe2bf;
+      --sage: #dce9cf;
+      --text: #4e4436;
+      --soft-text: #6d6253;
+      --white: rgba(255, 255, 255, 0.82);
+      --shadow: 0 20px 60px rgba(127, 107, 53, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 24px;
+      --radius-sm: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1380px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .page-top {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(247, 223, 163, 0.85), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.9), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+    }
+
+    .page-top::before,
+    .page-top::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(30px);
+      z-index: 0;
+    }
+
+    .page-top::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 240, 165, 0.5);
+      top: 70px;
+      right: 10%;
+    }
+
+    .page-top::after {
+      width: 220px;
+      height: 220px;
+      background: rgba(199, 229, 196, 0.45);
+      bottom: 30px;
+      left: 8%;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid rgba(239, 226, 191, 0.8);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand-title {
+      font-size: 2.3rem;
+      color: #6c5b36;
+      line-height: 0.95;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ab9452;
+      font-family: 'Inter', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #655948;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a:hover {
+      opacity: 0.65;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+      padding: 52px 0 82px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #b39748;
+      max-width: 420px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      color: #443a2c;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      display: block;
+      color: #a8893c;
+      margin-top: 8px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--soft-text);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--lemon);
+      color: #4a3f2b;
+      box-shadow: 0 10px 24px rgba(223, 191, 83, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #decfa3;
+      color: #5d5242;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 26px;
+    }
+
+    .hero-note {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .hero-note .eyebrow-small,
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      color: #a88f48;
+    }
+
+    .hero-note p {
+      margin-top: 8px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #574d3f;
+    }
+
+    section {
+      padding: 28px 0 42px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid #efe3c4;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 6px 24px rgba(111, 92, 41, 0.04);
+    }
+
+    .about-grid,
+    .story-grid {
+      display: grid;
+      gap: 34px;
+      grid-template-columns: 1fr 0.9fr;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1;
+      color: #473d2e;
+    }
+
+    .body-copy {
+      margin-top: 16px;
+      font-size: 1.03rem;
+      line-height: 1.95;
+      color: #655a4c;
+    }
+
+    .soft-box {
+      background: var(--ivory);
+      border-radius: var(--radius-md);
+      padding: 26px;
+    }
+
+    .soft-box ul {
+      margin-top: 14px;
+      padding-left: 18px;
+      color: #675c4b;
+      line-height: 1.9;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      max-width: 560px;
+      color: #736857;
+      line-height: 1.8;
+      font-size: 0.96rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .category-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eee3c5;
+      border-radius: 24px;
+      padding: 26px 22px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(112, 96, 54, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(112, 96, 54, 0.12);
+    }
+
+    .category-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #a48b4b;
+    }
+
+    .category-card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #4a402f;
+      margin-top: 10px;
+    }
+
+    .category-card p {
+      margin-top: 12px;
+      color: #665b4c;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .trip-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #eee3c5;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(112, 96, 54, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(112, 96, 54, 0.12);
+    }
+
+    .trip-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .trip-card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: center;
+    }
+
+    .trip-date {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a88d46;
+      line-height: 1.5;
+    }
+
+    .trip-title {
+      font-size: 1.6rem;
+      line-height: 1.02;
+      margin-top: 8px;
+      color: #463b2c;
+    }
+
+    .trip-text {
+      margin-top: 12px;
+      color: #6e6354;
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .mini-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .mini-btn {
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .mini-btn.primary {
+      background: #f8e48c;
+      color: #4a402d;
+    }
+
+    .feature-note {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #7a6d5a;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .archive-panel {
+      text-align: center;
+      background: linear-gradient(180deg, #fff8e4 0%, #fffdf4 100%);
+    }
+
+    .archive-panel p {
+      max-width: 700px;
+      margin: 16px auto 0;
+      color: #6b604f;
+      line-height: 1.9;
+    }
+
+    .story-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .story-card,
+    .favorite-card {
+      border-radius: 24px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .story-card {
+      background: #fffbef;
+    }
+
+    .story-card h3,
+    .favorite-card h3,
+    .soft-box h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #4a402f;
+    }
+
+    .story-card p,
+    .favorite-card p {
+      margin-top: 12px;
+      color: #665b4c;
+      line-height: 1.85;
+      font-size: 0.97rem;
+    }
+
+    .favorites-panel {
+      background: linear-gradient(180deg, #fff5d4 0%, #fffcef 100%);
+    }
+
+    .favorite-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .favorite-card {
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .favorite-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #a48b4b;
+    }
+
+    .map-panel {
+      text-align: center;
+    }
+
+    .map-wrap {
+      margin-top: 26px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #f8f4e8;
+      border: 1px solid #efe3c4;
+      box-shadow: 0 8px 24px rgba(112, 96, 54, 0.05);
+    }
+
+    .map-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      text-align: center;
+      color: #8b7f6e;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1200px) {
+      .trip-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        display: none;
+      }
+
+      .hero,
+      .about-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 34px;
+        padding: 42px 0 70px;
+      }
+
+      .hero-card img {
+        height: 420px;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .trip-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .category-grid,
+      .trip-grid {
+        grid-template-columns: 1fr;
+      }
+body {
+  background:
+    linear-gradient(rgba(255, 253, 246, 0.55), rgba(255, 253, 246, 0.65)),
+    url("images/homepage/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Gliding photo banner */
+.photo-marquee {
+  overflow: hidden;
+  padding: 22px 0;
+  background: rgba(255, 255, 255, 0.55);
+  border-top: 1px solid rgba(239, 226, 191, 0.8);
+  border-bottom: 1px solid rgba(239, 226, 191, 0.8);
+}
+
+.photo-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: glidePhotos 38s linear infinite;
+}
+
+.photo-track img {
+  width: 230px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(111, 92, 41, 0.16);
+  border: 6px solid rgba(255, 255, 255, 0.82);
+}
+
+@keyframes glidePhotos {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Cuter memories section */
+#memories .panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(247, 223, 163, 0.45), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.55), transparent 34%),
+    rgba(255, 255, 255, 0.9);
+}
+
+#memories .panel::before {
+  content: "✦";
+  position: absolute;
+  top: 24px;
+  right: 34px;
+  font-size: 3rem;
+  color: rgba(179, 151, 72, 0.28);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.memory-card {
+  position: relative;
+  min-height: 190px;
+  padding: 26px 22px 24px;
+  border-radius: 26px;
+  background: #fffaf0;
+  border: 1px solid #efe3c4;
+  box-shadow: 0 12px 28px rgba(111, 92, 41, 0.08);
+  transform: rotate(-1deg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.memory-card:nth-child(even) {
+  transform: rotate(1deg);
+  background: #fdfbf5;
+}
+
+.memory-card:nth-child(3n) {
+  background: #fff7dc;
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 54px;
+  height: 16px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(247, 223, 163, 0.7);
+  border-radius: 999px;
+}
+
+.memory-card p {
+  margin-top: 14px;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: #5f5446;
+  text-align: center;
+}
+
+.memory-card:hover {
+  transform: translateY(-6px) rotate(0deg);
+  box-shadow: 0 18px 38px rgba(111, 92, 41, 0.14);
+}
+
+@media (max-width: 980px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-track img {
+    width: 200px;
+    height: 135px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    }
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.memory-card {
+  position: relative;
+  background: linear-gradient(180deg, #fffaf0 0%, #fffdf6 100%);
+  border: 1px solid #efe3c4;
+  border-radius: 22px;
+  padding: 22px 20px;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: #5f5446;
+  box-shadow: 0 10px 24px rgba(112, 96, 54, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(112, 96, 54, 0.14);
+}
+
+.memory-card p {
+  margin-top: 8px;
+}
+
+.memory-dot {
+  width: 8px;
+  height: 8px;
+  background: #f2d35d;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 980px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 24px, 1380px);
+      }
+
+      .nav-wrap {
+        padding: 16px 0;
+      }
+
+      .brand-title {
+        font-size: 1.7rem;
+      }
+
+      h1 {
+        font-size: 2.7rem;
+      }
+
+      .panel,
+      .hero-note,
+      .soft-box,
+      .trip-card-content,
+      .story-card,
+      .favorite-card,
+      .category-card {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-card {
+        padding: 10px;
+      }
+
+      .hero-card img {
+        height: 340px;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <header>
+      <div class="container nav-wrap">
+        <div>
+          <div class="brand-title serif">Outrunning My Feet</div>
+          <div class="brand-subtitle">Outgrowing My Shoes</div>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#browse">Browse</a>
+          <a href="#trips">Favorites</a>
+          <a href="the-whole-journey.html">The Whole Journey</a>
+          <a href="#map">Map</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home">
+      <div class="container hero">
+        <div>
+          <h1 class="serif">
+            An archive of my
+            <span>places, feelings, and favorites</span>
+          </h1>
+          <p>
+            Outrunning My Feet, Outgrowing My Shoes is a creative outlet for me to express how travel has always done more than just take me somewhere new. Anyone who knows me knows that I am always moving, always growing, and never coming back the same. Every trip feels like something I am growing through, not just going through. I'm always left with little pieces of places that don't quite fit back into who I was before.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#trips">Start with the favorites</a>
+            <a class="btn btn-secondary" href="#browse">Browse by vibe</a>
+            <a class="btn btn-secondary" href="the-whole-journey.html">See The Whole Journey</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+	<img src="images/Home/Cover.JPEG" alt="Backpacked Europe 2024" />
+          <div class="hero-note">
+            <p>
+              A place where I can hold onto what we loved, what surprised us, and who we were while we were there — long after my now too-small shoes are back by the door.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <main>
+        <section id="browse">
+      <div class="container">
+        <div class="section-head" style="justify-content:center; text-align:center; margin-bottom: 20px;">
+          <div>
+            <h2 class="section-title serif">Getting around the Rose way</h2>
+            <p style="margin: 16px auto 0; max-width: 700px;">
+              Some trips are all about relazing on beautiful beaches and getting a good tan.  Others are about seeing how far I can push my tennis shoes and where I can get the best pizza.  I felt like the best way to show how we like to get around was organizing it like this, since I've been blessed enough to have too many memories to just throw a list of them at you.
+            </p>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card" href="the-whole-journey.html#beach">
+            <div class="category-label">Destination type</div>
+            <h3 class="serif">Beach Days</h3>
+            <p>Salty hair, sleeping in until noon, and sunburns.</p>
+          </a>
+
+          <a class="category-card" href="the-whole-journey.html#city">
+            <div class="category-label">Destination type</div>
+            <h3 class="serif">City Escapes</h3>
+            <p>Street lights, navigating the metros like natives, and the feeling that there's always something else around the corner.</p>
+          </a>
+
+          <a class="category-card" href="the-whole-journey.html#nature">
+            <div class="category-label">Destination type</div>
+            <h3 class="serif">Nature + Quiet</h3>
+            <p>Getting back to nature (and getting carsick on the way) and moments that made me appreciate Arkansas a little more</p>
+          </a>
+
+          <a class="category-card" href="the-whole-journey.html#international">
+            <div class="category-label">Destination type</div>
+            <h3 class="serif">Farther From Home</h3>
+            <p>The places that made me want to put a private jet on my wedding registry</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="trips">
+      <div class="container">
+        <div class="section-head" style="justify-content:center; text-align:center; margin-bottom: 34px;">
+          <div>
+            <h2 class="section-title serif" style="text-align:center; width:100%;">Places I Still Think About</h2>
+          </div>
+        </div>
+
+ <div class="trip-grid">
+  <article class="trip-card">
+    <img src="images/CoverPhotos/latvia_23_cover.JPEG" alt="Latvia 2023" />
+    <div class="trip-card-content">
+      <div class="trip-date">June / August 2023</div>
+      <h3 class="trip-title serif">Latvia</h3>
+      <p class="trip-text">A new country, a new family, a new me.  The trip that truly sparked the love of travel within me.</p>
+      <div class="mini-buttons">
+        <a class="mini-btn primary" href="latvia-23-details.html">Details</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="trip-card">
+    <img src="images/CoverPhotos/spain_cover.jpg" alt="Backpacked Europe 2024" />
+    <div class="trip-card-content">
+      <div class="trip-date">Summer 2024</div>
+      <h3 class="trip-title serif">Backpacked Europe</h3>
+      <p class="trip-text">The most tired, most fulfilled I've ever felt. I showed up with a half empty backpack and left with a new view of the world.</p>
+      <div class="mini-buttons">
+        <a class="mini-btn primary" href="the-whole-journey.html#europe-2024">Collection</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="trip-card">
+    <img src="images/CoverPhotos/hawaii_25_cover.JPEG" alt="Hawaii 2025" />
+    <div class="trip-card-content">
+      <div class="trip-date">September 2025</div>
+      <h3 class="trip-title serif">Hawaii</h3>
+      <p class="trip-text">Magical moments full of nature that made me fall in love with these islands enough to make the 10 hour plane ride worth it.</p>
+      <div class="mini-buttons">
+        <a class="mini-btn primary" href="hawaii-details.html">Details</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="trip-card">
+    <img src="images/CoverPhotos/japan_cover.jpg" alt="Japan 2026" />
+    <div class="trip-card-content">
+      <div class="trip-date">January 2026</div>
+      <h3 class="trip-title serif">Japan</h3>
+      <p class="trip-text">A spur of the moment trip that totally changed our view of travel.</p>
+      <div class="mini-buttons">
+        <a class="mini-btn primary" href="japan-details.html">Details</a>
+      </div>
+    </div>
+  </article>
+</div>
+             
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="panel archive-panel">
+          <h2 class="section-title serif">The Full Archive</h2>
+          <div class="button-row" style="justify-content:center;">
+            <a class="btn btn-primary" href="the-whole-journey.html">View The Whole Journey</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="memories">
+  <div class="container">
+    <div class="panel">
+      <div class="section-eyebrow" style="text-align:center;">Little moments I kept</div>
+      <h2 class="section-title serif" style="text-align:center;">The parts I didn’t want to forget</h2>
+
+      <div class="memory-grid">
+        <div class="memory-card">
+          <p>Walking just far enough away from the nude beach in Spain to find those quiet tide pools and feeling like a mermaid.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>That bus ride through Croatia where I couldn’t stop staring out the window, trying to take in every second because I couldn’t believe where we were.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>That random chicken alfredo in Rome that we didn’t plan for, but somehow ended up being our favorite travel meal ever.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>Walking through London at night with nowhere we needed to be, just ending up wherever the streets took us.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>That waiter in Puerto Rico who said “ta daaaaa” every single time he set a dish down.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>The moment the Tokyo metro started to make sense — and then we took the wrong exit.</p>
+        </div>
+
+        <div class="memory-card">
+          <p>Standing there watching the Eiffel Tower sparkle and thinking, “I can’t believe this is real life right now.”</p>
+        </div>
+
+        <div class="memory-card">
+          <p>Riding bikes through the Netherlands with no real plan, daydreaming about the mango sticky rice we had just eaten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+  <footer>
+    <div class="container">
+      Outrunning My Feet — a place for the trips, the details, and the stories behind them.
+    </div>
+  </footer>
+</body>
+</html>
