@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where the Watermelon Seeds Went | Outrunning My Feet</title>
+
+  <style>
+    :root {
+      --cream: #fff7e8;
+      --soft-cream: #fffdf6;
+      --butter: #f7df9e;
+      --gold: #d9a441;
+      --honey: #f0c96d;
+      --clay: #b46b48;
+      --rust: #8f4f36;
+      --sage: #8f9f74;
+      --deep-green: #394833;
+      --ink: #2f2a24;
+      --soft-ink: #66594f;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(75, 52, 31, 0.16);
+      --radius-lg: 34px;
+      --radius-md: 22px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+     font-family: var(--serif);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(247, 223, 158, 0.55), transparent 34%),
+        radial-gradient(circle at 90% 5%, rgba(180, 107, 72, 0.20), transparent 28%),
+        linear-gradient(180deg, #fff8eb 0%, #f8ead0 48%, #fffdf6 100%);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      overflow: hidden;
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--deep-green);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand strong {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--soft-ink);
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(143, 79, 54, 0.14);
+      font-size: 0.88rem;
+      color: var(--deep-green);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero {
+      width: min(1120px, calc(100% - 36px));
+      margin: 18px auto 48px;
+      min-height: 560px;
+      border-radius: 42px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 64px 28px;
+      background:
+        linear-gradient(rgba(47, 42, 36, 0.24), rgba(47, 42, 36, 0.42)),
+        url("images/arkansas-hero.jpg") center/cover no-repeat;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 32px;
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      text-align: center;
+      padding: 42px;
+      border-radius: 34px;
+      background: rgba(255, 253, 246, 0.84);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 20px 50px rgba(47, 42, 36, 0.18);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--rust);
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: 0.92;
+      color: var(--deep-green);
+      font-weight: 500;
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      margin: 22px auto 0;
+      font-size: 1.06rem;
+      color: var(--soft-ink);
+    }
+
+    .section {
+      width: min(980px, calc(100% - 36px));
+      margin: 0 auto 42px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--clay);
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      line-height: 1.05;
+      color: var(--deep-green);
+      font-weight: 500;
+    }
+
+    .story-card,
+    .poem-card {
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 246, 0.82);
+      border: 1px solid rgba(180, 107, 72, 0.16);
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 62px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-card::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: rgba(240, 201, 109, 0.35);
+    }
+
+    .story-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .story-content p {
+      margin: 0 0 1.45rem;
+      font-size: 1.03rem;
+      color: var(--ink);
+    }
+
+    .story-content p:first-child::first-letter {
+      float: left;
+      font-family: var(--serif);
+      font-size: 5.5rem;
+      line-height: 0.8;
+      padding: 12px 12px 4px 0;
+      color: var(--clay);
+    }
+
+    .pull-quote {
+      margin: 34px auto;
+      padding: 28px;
+      max-width: 720px;
+      text-align: center;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(247, 223, 158, 0.52), rgba(255, 255, 255, 0.72));
+      border: 1px solid rgba(217, 164, 65, 0.25);
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2vw, 2rem);
+      line-height: 1.22;
+      color: var(--rust);
+    }
+
+    .divider {
+      width: min(720px, calc(100% - 36px));
+      margin: 64px auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--clay);
+    }
+
+    .divider span {
+      height: 1px;
+      flex: 1;
+      background: rgba(180, 107, 72, 0.28);
+    }
+
+    .divider p {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .poem-section {
+      width: min(880px, calc(100% - 36px));
+      margin-bottom: 72px;
+    }
+
+    .poem-card {
+      background:
+        linear-gradient(180deg, rgba(255, 253, 246, 0.94), rgba(255, 247, 232, 0.92)),
+        radial-gradient(circle at top left, rgba(143, 159, 116, 0.18), transparent 32%);
+      text-align: center;
+    }
+
+    .poem-card::after {
+      content: "✦";
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: rgba(180, 107, 72, 0.42);
+      font-size: 1.6rem;
+    }
+
+    .poem {
+      max-width: 620px;
+      margin: 0 auto;
+      font-family: var(--serif);
+      font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+      line-height: 1.75;
+      color: var(--deep-green);
+      white-space: pre-line;
+    }
+
+    .poem-title {
+      margin: 0 0 28px;
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      color: var(--rust);
+      font-weight: 500;
+    }
+
+    .closing-note {
+      width: min(820px, calc(100% - 36px));
+      margin: 0 auto 80px;
+      text-align: center;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      background: rgba(57, 72, 51, 0.08);
+      color: var(--soft-ink);
+    }
+
+    .closing-note p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--deep-green);
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 18px 46px;
+      color: var(--soft-ink);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 34px 18px;
+        border-radius: 30px;
+      }
+
+      .hero::before {
+        inset: 10px;
+        border-radius: 24px;
+      }
+
+      .hero-card {
+        padding: 30px 22px;
+      }
+
+      .story-card,
+      .poem-card {
+        border-radius: 26px;
+      }
+
+      .story-content p:first-child::first-letter {
+        font-size: 4.5rem;
+      }
+    }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(255, 248, 232, 0.82), rgba(255, 248, 232, 0.86)),
+    url("images/Home/delicate_honeysuckle_floral_watercolor_pattern.png") center top / cover fixed no-repeat;
+  line-height: 1.75;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <header class="nav">
+      <a href="index.html" class="brand">
+        <strong>Outrunning My Feet</strong>
+        <span>Outgrowing My Shoes</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="journey.html">The Whole Journey</a>
+        <a href="stories.html">Stories</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <p class="eyebrow">A love letter to home</p>
+          <h1>Where the Watermelon Seeds Went</h1>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="section-kicker">Original Piece by Rose Brown</p>
+        </div>
+
+        <article class="story-card">
+          <div class="story-content">
+            <p>You sit on the front porch with your early-twenties mom and your two siblings eating a watermelon in defiance of the suffocating August heat. She teaches you to put salt on it, and it becomes a habit you will never be able to kick. You accidentally swallow a seed, and your mom tells you that a tree is now growing. One day, you’ll wake up for kindergarten and a sapling will be poking out of your belly button. Arkansas begins growing in you before you get to decide if you want it growing there.</p>
+
+            <p>You can't understand it by passing through on I-30 or rooting for the Razorbacks. You don't get to pick it up, turn it over in your hands, and decide what it is.</p>
+
+            <p>You have to spend your summers barefoot in the warm dirt, telling your grandma you can almost smell the honeysuckles and asking if she’ll please put calamine lotion on your mosquito bites. You have to wait until dusk to catch lightning bugs in jars, small and holy and now doomed, then climb onto the roof and tell the same girl you’ve been friends with since fourth grade that you can’t wait to leave. She agrees and you continue the conversation under the pretense that if you say it enough times, a plane will show up in your front yard and open the door to let you become someone else.</p>
+
+            <p>You need to roll your eyes at the thirty-minute drive into town, then move away one day and realize how much light pollution there is in the rest of the world.</p>
+
+            <div class="pull-quote">
+             You have to feel the quiet comfort of things that don't ask for some impressive spotlight in the grand scheme of your life. A tote full of quilts crocheted by the women who came before you. A watermelon bought from the back of a truck on the side of the road. The irony of the best watermelons coming from a town called Hope.
+            </div>
+
+            <p>Kids born in California, New York, and Hawaii have so much to look forward to. So many versions of themselves they can become. All you’ll ever be is you. And everyone knows you. And your dad. And your grandparents. And everyone else you’ve ever known. Because, as it turns out, you are actually not the first person to ever know someone. You are part of a long, complicated sentence that started before you got here. At fifteen, this is some sort of terrible death sentence truth to learn of.</p>
+
+            <p>And the funniest thing about Arkansas is that it never actually tries to win you over. It's just here if you need it.</p>
+
+            <p>But there is this undeniable feeling that life is happening somewhere else without you, and you have a lot of catching up to do. Everyone else got a head start and all you got was a bad education and bug bites. So you leave.</p>
+
+            <p>And everything you wanted to escape becomes some longing comparison to everywhere you'll ever go.</p>
+
+            <p>There is no more warm dirt under your bare feet. No honeysuckle hanging in the heat. No creeks where you know exactly which rocks to turn over to find the crawfish. And nobody anywhere else knows you.</p>
+
+            <p>Somewhere along the way, Arkansas took root in you. In the part that still believes a porch can be a place of worship, that a creek can raise a child, and that a salt-covered watermelon seed might still be sitting somewhere in your belly, there lies Arkansas.</p>
+          </div>
+        </article>
+      </section>
+
+      <div class="divider" aria-hidden="true">
+        <span></span>
+        <p>❦</p>
+        <span></span>
+      </div>
+
+      <section class="section poem-section">
+        <div class="section-header">
+          <p class="section-kicker">The poem</p>
+        </div>
+
+        <article class="poem-card">
+          <h3 class="poem-title">Arkansas</h3>
+
+          <div class="poem">No warm dirt beneath my feet,
+No honeysuckle in the heat,
+No creek that knows which stones to toss
+To find the crawfish in the moss.
+
+No porch light glowing soft and low,
+No cars out front to let me know
+Who’s made it home, who’s passing through,
+Whose mama’s there, whose cousin too.
+
+No gravel road, no summer sky,
+No lightning bugs that drift and fly,
+No roof where I once swore I’d go
+Beyond the place that raised me slow.
+
+Yet somewhere deep, where roots run far,
+Past every wish and every scar,
+This land took hold before I knew
+What small-town soil was meant to do.
+
+It lives where porches turn to prayer,
+Where creeks raise children in their care,
+Where salted seeds from childhood’s hand
+Still bloom beneath my native land.
+
+So let the wide world call my name,
+With brighter lights and louder fame;
+I’ll carry fields I tried to flee —
+Arkansas took root in me.</div>
+        </article>
+      </section>
+
+      <section class="closing-note">
+        <p>For the place that felt too small, until the rest of the world taught me what small can hold.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© Outrunning My Feet</p>
+    </footer>
+
+  </div>
+</body>
+</html>
