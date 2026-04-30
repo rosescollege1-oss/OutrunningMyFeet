@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poland Details | Outrunning My Feet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f7dfa3;
+      --lemon: #f2d35d;
+      --cream: #fffdf6;
+      --ivory: #fff9ea;
+      --sand: #efe2bf;
+      --sage: #dce9cf;
+      --text: #4e4436;
+      --soft-text: #6d6253;
+      --white: rgba(255, 255, 255, 0.84);
+      --shadow: 0 20px 60px rgba(127, 107, 53, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 24px;
+      --radius-sm: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .page-top {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(247, 223, 163, 0.85), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.9), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(239,226,191,0.8);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand-title {
+      font-size: 2.45rem;
+      font-style: italic;
+      color: #6c5b36;
+      line-height: 0.95;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ab9452;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #655948;
+    }
+
+    nav a:hover { opacity: 0.65; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 46px;
+      align-items: center;
+      padding: 52px 0 76px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #b39748;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      color: #443a2c;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      color: var(--soft-text);
+      font-size: 1.03rem;
+      line-height: 1.95;
+      max-width: 680px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #e3d6af;
+      color: #5d5242;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .hero-card img {
+      height: 470px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      border-radius: 22px;
+      background: #fffaf0;
+      padding: 18px 20px;
+      color: #5b503f;
+      line-height: 1.8;
+    }
+
+    main section { padding: 18px 0 30px; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      color: #a88f48;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1;
+      color: #473d2e;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #efe3c4;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 6px 24px rgba(111, 92, 41, 0.04);
+    }
+
+    .overview-grid,
+    .hotel-grid,
+    .notes-grid,
+    .rating-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .overview-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .hotel-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .notes-grid { grid-template-columns: 1fr 1fr; }
+    .rating-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .info-card,
+    .soft-card,
+    .restaurant-card,
+    .day-card,
+    .rating-card {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .info-card { background: #fff9e8; }
+    .soft-card { background: #fdfbf5; border: 1px solid #efe4c7; }
+    .restaurant-card { background: #fffdf8; border: 1px solid #efe4c7; }
+    .day-card { background: #fffbef; border: 1px solid #f0e5c8; }
+    .rating-card { background: linear-gradient(180deg, #fff5d4 0%, #fffcef 100%); }
+
+    .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a38a49;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4b4030;
+    }
+
+    .soft-card h3,
+    .restaurant-card h3,
+    .day-card h3,
+    .rating-card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #483e2f;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .soft-card p,
+    .restaurant-card p,
+    .day-card p,
+    .rating-card p,
+    .soft-card li,
+    .restaurant-card li {
+      margin-top: 12px;
+      color: #655a4c;
+      line-height: 1.85;
+      font-size: 0.97rem;
+    }
+
+    ul { padding-left: 18px; }
+    .stack { display: grid; gap: 18px; }
+    .restaurant-meta { margin-top: 12px; display: grid; gap: 10px; }
+
+    .badge {
+      display: block;
+      width: fit-content;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: #fff7dc;
+      color: #6a5b3b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(127, 107, 53, 0.06);
+    }
+
+    .back-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--lemon); color: #4a3f2b; }
+    .btn-secondary { background: rgba(255,255,255,0.85); border: 1px solid #decfa3; color: #5d5242; }
+
+    .photo-gallery {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .photo-gallery .restaurant-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-gallery .restaurant-card img {
+      width: 100%;
+      height: 430px;
+      object-fit: contain;
+      background: #fff8ec;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .photo-gallery .restaurant-card:hover {
+      z-index: 10;
+    }
+
+    .photo-gallery .restaurant-card:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    footer {
+      padding: 26px 0 48px;
+      text-align: center;
+      color: #8b7f6e;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero,
+      .overview-grid,
+      .hotel-grid,
+      .notes-grid,
+      .rating-grid { grid-template-columns: 1fr; }
+      .hero { padding: 42px 0 62px; }
+      .hero-card img { height: 380px; }
+    }
+
+    @media (max-width: 900px) {
+      .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .panel,
+      .info-card,
+      .soft-card,
+      .restaurant-card,
+      .day-card,
+      .rating-card { padding: 20px; }
+      h1 { font-size: 2.8rem; }
+      .brand-title { font-size: 1.95rem; }
+    }
+
+    @media (max-width: 600px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-gallery .restaurant-card img {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <header>
+      <div class="container nav-wrap">
+        <div>
+          <div class="brand-title serif">Outrunning My Feet</div>
+          <div class="brand-subtitle">Outgrowing My Shoes</div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#stay">Stay</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#food">Food</a>
+          <a href="#favorites">Favorites</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="container hero">
+        <div>
+          <div class="eyebrow"> • Poland • </div>
+          <h1 class="serif">A travel miss in every sense</h1>
+          <p class="hero-copy">
+            Not every stop becomes a favorite, and Warsaw was very much that kind of lesson for us. Maybe the twelve-hour bus ride had already ruined our mood before we even arrived, but this day just never recovered. Everything felt dirty, closed, empty, or frustrating, and by the time we made it to the airport, it mostly felt like a city we had completely failed to experience the right way. I would be open to giving it another chance someday with more research and better travel planning, but this attempt was a total flop.
+          </p>
+          <div class="pill-row">
+            <div class="pill">July 12, 2024</div>
+            <div class="pill">Warsaw</div>
+            <div class="pill">Day trip, Old Town, love bridge</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+                    <div class="hero-note">
+            Warsaw had an unfair disadvantage considering the trip started with an argument in Russian between Rose and a bus driver at 1 a.m. in Lithuania. I will admit, I somehow managed to book Aiden a ticket for the 10th and me one for the 11th. Because the bus didn't arrive and start checking people in until 12:30 (scheduled for 20:00), I was unable to fix the ticket mishap. The driver decided the only way to trust that we would pay our debts ($12 USD...come on) was to hold our passports for the ride. Of course we declined and he watched us like a hawk the entire journey.  Once we got there, he said that one of us had to stay with him while the other went into the nearby mall to pull money from an ATM. We decided that Aiden would go to the ATM. After about 10 minutes he came back out and admitted that he could not read Polish. I went in and pulled what seemed to be more than enough out, exchanged it, and was given back $7 USD. So, I returned to the ATM, pulled more out, and swiped away the notification from my banking app telling me that I was likely being hacked as someone was stealing 14 of my dollars from an ATM in Warsaw.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section id="overview">
+      <div class="container panel">
+        <h2 class="section-title serif">The quick snapshot</h2>
+        <div class="overview-grid" style="margin-top: 26px;">
+          <div class="info-card">
+            <div class="label">Dates</div>
+            <div class="value">July 12, 2024</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Where we stayed</div>
+            <div class="value">Day trip only — no overnight stay</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Trip style</div>
+            <div class="value">Transit-heavy stop, quick exploring, and a lot of learning the hard way</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Overall rating</div>
+            <div class="value">2 / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay">
+  <div class="container panel">
+    <div class="section-eyebrow">Where we stayed</div>
+    <h2 class="section-title serif">Stay details</h2>
+
+    <div class="notes-grid" style="margin-top: 26px; align-items: stretch;">
+
+      <div class="soft-card" style="display: flex; flex-direction: column;">
+        <h3>Hotel / Airbnb</h3>
+        <p><strong>Name:</strong> Day trip only</p>
+        <p><strong>Area:</strong> Warsaw</p>
+        <p><strong>What I liked:</strong> Since we did not stay overnight, the one positive is that we were not locked into a longer stretch of a trip that already was not going well.</p>
+
+        <div class="badge" style="margin-top: auto;">Would I stay here again? Nope!</div>
+      </div>
+
+      <div class="soft-card" style="display: flex; flex-direction: column;">
+        <h3>Getting there</h3>
+        <p><strong>Travel:</strong> Ecolines bus from Vilnius</p>
+        <p><strong>Travel cost:</strong> $24.00</p>
+        <p><strong>Arrival notes:</strong> Difficult, dirty, exhausting, and honestly horrible. By the time we got off the bus, we already felt drained, which made everything else hit harder. It was the kind of travel leg that makes you regret your decision before the actual destination even gets a fair chance.</p>
+        <p><strong>Recommendation:</strong> Strangely...yea. I am helplessly loyal to cheap travel, even when it asks a little too much of me. The ride was uncomfortable, late, difficult, and irritating in nearly every possible way, but it was still a bargain. Since sleep wasn't in the cards for me, I spent most of the drive watching the Lithuanian and Polish fields blur past the window. Somewhere in all that quiet, my homesickness softened. The land looked almost like Arkansas, but not quite. Familiar in shape, not in spirit. See my “Piece on Arkansas” for more on how I really feel about my homeland.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section id="gallery">
+      <div class="container panel">
+        <div class="section-eyebrow">Photo gallery</div>
+
+        <div class="photo-gallery">
+
+          <div class="restaurant-card">
+            <img src="images/Poland24/IMG_6704.jpg" />
+            <p>While frustrating, it was a very beautiful city</p>
+          </div>
+
+ <div class="restaurant-card">
+            <img src="images/Poland24/IMG_6699.jpg" />
+            <p>Love lock bridge!</p>
+          </div>
+
+<div class="restaurant-card">
+            <img src="images/Poland24/IMG_6687.jpg" />
+            <p>Colorful buildings</p>
+          </div>
+          
+<div class="restaurant-card">
+            <img src="images/Poland24/IMG_6675.jpg" />
+            <p></p>
+          </div>
+          
+<div class="restaurant-card">
+            <img src="images/Poland24/IMG_6212.jpg" />
+            <p></p>
+          </div>
+
+
+        </div>
+    </section>
+
+    <section id="food">
+      <div class="container panel">
+        <div class="section-eyebrow">Food + drink</div>
+        <h2 class="section-title serif">Where we ate and what we ordered</h2>
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <h3>Food notes</h3>
+            <div class="restaurant-meta">
+              <p><strong>What we ended up eating:</strong> McDonald’s, mostly because it was the only place open near us that early in the morning</p>
+                           <p><strong>Would I do it again?</strong> Not like this</p>
+              <p><strong>Notes:</strong> We were already exhausted, the restaurant was crowded, and half our order was missing. It was not exactly the kind of first meal that helps redeem a rough arrival.</p>
+            </div>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>What this part of the trip felt like</h3>
+            <p>It never felt like we got to actually enjoy Warsaw. Between the bus ride, the closed businesses, and the general exhaustion, the whole food side of the day just felt like survival mode more than travel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel">
+        <div class="section-eyebrow">Daily notes</div>
+        <h2 class="section-title serif">What we did, day by day</h2>
+        <div class="stack" style="margin-top: 26px;">
+          <div class="day-card">
+            <h3>Day 1</h3>
+            <p><strong>Date:</strong> July 12, 2024</p>
+            <p><strong>Main plan:</strong> Arrive from Vilnius, get into the city, explore Old Town, put our lock on the love bridge, and then head to the airport.</p>
+            <p><strong>Best part:</strong> Leaving our lock on the bridge was probably the one little bright spot in an otherwise frustrating day.</p>
+            <p><strong>Worth repeating?</strong> Only in a completely different way</p>
+          </div>
+
+          <div class="day-card">
+            <h3>What went wrong</h3>
+                       <p><strong>Then what happened:</strong> The city felt dirty, the public restroom was awful even after paying for it, McDonald’s missed half our order, Old Town was empty and silent, and by the time we reached the airport, it still felt like nothing was open and there was nothing to do.</p>
+            <p><strong>Worth remembering?</strong> Yes — mostly as a travel lesson</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="favorites">
+      <div class="container rating-grid">
+        <div class="rating-card">
+          <h3>Favorites</h3>
+          <p><strong>Best part:</strong> Putting our lock on the love bridge</p>
+                  <p><strong>Best little moment:</strong> Honestly, just making it through and moving on</p>
+          <p><strong>Most honest feeling:</strong> This one was a fail, and that is okay. Every trip has one.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d recommend</h3>
+          <p>If I were giving advice based on this experience, I would say to do much more research than we did and arrive in a way that does not leave you completely drained. I still think Warsaw deserves a fairer chance than the one we gave it.</p>
+        </div>
+        <div class="rating-card">
+          <h3>Bonus Moment</h3>
+          <p>In an attempt to put an end to a bad day, we decided to head over to the Lotnisko Chopina Warszawa airport 6 hours early. We decided that we would grab some airport food, find a comfy place to charge our phones, and wait for the plane to literally anywhere else. Once inside, we discovered that there was pretty much no real food. A few sandwiches in one store, full of children running around. Whatever, we'll eat later. Let's just go find somewhere to sit and recharge (both literally and metaphorically.) Silly us. Instead of terminals and gates, there was one large room with 5 rows of chairs that were already full. We tried to leave the airport but we were told the only way to leave was to get on a plane (which, fair, but dang it.) Yet another lesson learned. It's laughable now how bad this day was. At the time, we thought we might have been cursed.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Outrunning My Feet — Poland details page</div>
+  </footer>
+</body>
+</html>
