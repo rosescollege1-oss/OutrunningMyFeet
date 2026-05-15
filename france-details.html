@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>France Details | Outrunning My Feet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f7dfa3;
+      --lemon: #f2d35d;
+      --cream: #fffdf6;
+      --ivory: #fff9ea;
+      --sand: #efe2bf;
+      --sage: #dce9cf;
+      --text: #4e4436;
+      --soft-text: #6d6253;
+      --white: rgba(255, 255, 255, 0.84);
+      --shadow: 0 20px 60px rgba(127, 107, 53, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 24px;
+      --radius-sm: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .page-top {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(247, 223, 163, 0.85), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.9), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(239,226,191,0.8);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand-title {
+      font-size: 2.45rem;
+      font-style: italic;
+      color: #6c5b36;
+      line-height: 0.95;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ab9452;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #655948;
+    }
+
+    nav a:hover { opacity: 0.65; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 46px;
+      align-items: center;
+      padding: 52px 0 76px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #b39748;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      color: #443a2c;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      color: var(--soft-text);
+      font-size: 1.03rem;
+      line-height: 1.95;
+      max-width: 680px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #e3d6af;
+      color: #5d5242;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .hero-card img {
+      height: 470px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      border-radius: 22px;
+      background: #fffaf0;
+      padding: 18px 20px;
+      color: #5b503f;
+      line-height: 1.8;
+    }
+
+    main section { padding: 18px 0 30px; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      color: #a88f48;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1;
+      color: #473d2e;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #efe3c4;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 6px 24px rgba(111, 92, 41, 0.04);
+    }
+
+    .overview-grid,
+    .hotel-grid,
+    .notes-grid,
+    .rating-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .overview-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .hotel-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .notes-grid { grid-template-columns: 1fr 1fr; }
+    .rating-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .info-card,
+    .soft-card,
+    .restaurant-card,
+    .day-card,
+    .rating-card {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .info-card { background: #fff9e8; }
+    .soft-card { background: #fdfbf5; border: 1px solid #efe4c7; }
+    .restaurant-card { background: #fffdf8; border: 1px solid #efe4c7; }
+    .day-card { background: #fffbef; border: 1px solid #f0e5c8; }
+    .rating-card { background: linear-gradient(180deg, #fff5d4 0%, #fffcef 100%); }
+
+    .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a38a49;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4b4030;
+    }
+
+    .soft-card h3,
+    .restaurant-card h3,
+    .day-card h3,
+    .rating-card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #483e2f;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .soft-card p,
+    .restaurant-card p,
+    .day-card p,
+    .rating-card p,
+    .soft-card li,
+    .restaurant-card li {
+      margin-top: 12px;
+      color: #655a4c;
+      line-height: 1.85;
+      font-size: 0.97rem;
+    }
+
+    ul { padding-left: 18px; }
+    .stack { display: grid; gap: 18px; }
+    .restaurant-meta { margin-top: 12px; display: grid; gap: 10px; }
+
+    .badge {
+      display: block;
+      width: fit-content;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: #fff7dc;
+      color: #6a5b3b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(127, 107, 53, 0.06);
+    }
+
+    .back-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--lemon); color: #4a3f2b; }
+    .btn-secondary { background: rgba(255,255,255,0.85); border: 1px solid #decfa3; color: #5d5242; }
+
+    footer {
+      padding: 26px 0 48px;
+      text-align: center;
+      color: #8b7f6e;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero,
+      .overview-grid,
+      .hotel-grid,
+      .notes-grid,
+      .rating-grid { grid-template-columns: 1fr; }
+      .hero { padding: 42px 0 62px; }
+      .hero-card img { height: 380px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .panel,
+      .info-card,
+      .soft-card,
+      .restaurant-card,
+      .day-card,
+      .rating-card { padding: 20px; }
+      h1 { font-size: 2.8rem; }
+      .brand-title { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <header>
+      <div class="container nav-wrap">
+        <div>
+          <div class="brand-title serif">Outrunning My Feet</div>
+          <div class="brand-subtitle">Outgrowing My Shoes</div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#stay">Stay</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#food">Food</a>
+          <a href="#favorites">Favorites</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="container hero">
+        <div>
+          <div class="eyebrow">• France • </div>
+          <h1 class="serif">A very short, very romantic glimpse of Paris</h1>
+          <p class="hero-copy">
+We never planned on making a stop in Paris (pronounced like "Paree" to flaunt my biliteracy seal in French from high school), but thanks to some very rude flight liaisons in CDG who apparently hate Americans, we were stranded in the City of Love.</p>
+ <p class="hero-copy">
+We landed and only had 45 minutes before our flight to Riga was set to board and still had to go through customs. We asked one of the gate agents, who directed us in one huge circle while giggling. We watched our flight take off, and headed to the American Airlines help desk. After about two hours of begging to be rebooked, he gave us tickets... for eight hours later. We waited in uncomfortable airport chairs, stuffing our faces with Belgian sugar waffles from vending machines.
+                     </p>
+ <p class="hero-copy">
+We finally went to check into our flight, but the gate agents couldn't find our ticket numbers so they sent us to the end of the line. When we finally got back to the front of the line, they told us that we were late and our tickets were fake. We returned to the American Airlines desk, which took us no less than 30 minutes. An adorable French man told us that the other gate agents were lazy, useless, and a few other words in French that I didn't feel were appropriate to translate to the blog. He told us to leave the airport, book our own flights, and enjoy the night in Paris...so we did! 
+                     </p>
+
+          <div class="pill-row">
+            <div class="pill">July 16–17, 2024</div>
+            <div class="pill">Paris</div>
+            <div class="pill">Quick city stop, wandering, wine, Eiffel Tower at night</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80" alt="Paris view" />
+          <div class="hero-note">
+            Paris was totally magical once we ventured into it. Luckily, there was still plenty of daylight left and due to the time change we were wide awake. The World Cup was going on and France was playing Türkiye, with every Parisian alive out in the streets wine-drunk. We had crepes, walked along the Seine, and explored by foot. We ended up getting an Uber to the Eiffel Tower to see her sparkle with the Olympic rings on.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section id="overview">
+      <div class="container panel">
+        <h2 class="section-title serif">The quick snapshot</h2>
+        <div class="overview-grid" style="margin-top: 26px;">
+          <div class="info-card">
+            <div class="label">Dates</div>
+            <div class="value">July 16–17, 2024</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Where we stayed</div>
+            <div class="value">Paris, France</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Trip style</div>
+            <div class="value">Fast-paced city wandering, romance, wine, and iconic sights</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Overall rating</div>
+            <div class="value">8 / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay">
+      <div class="container panel hotel-grid">
+        <div>
+          <div class="section-eyebrow">Where we stayed</div>
+          <h2 class="section-title serif">Stay details</h2>
+          <div class="stack" style="margin-top: 24px;">
+            <div class="soft-card">
+              <h3>Airbnb</h3>
+              <p><strong>Link:</strong> <a href="https://www.airbnb.com/rooms/1078750676468126377?guests=1&c=.pi129.pkpast_trip_share_virality&s=67&unique_share_id=a68ba222-9543-4bf5-a864-9a6294bae20c" target="_blank" rel="noopener">Airbnb listing</a></p>
+              <p><strong>Area:</strong> Paris</p>
+              <p><strong>What I liked:</strong> It gave us a comfortable little home base in the middle of a very short trip, which mattered a lot when we were trying to squeeze so much into such a small amount of time. Also, the skylights gave us a beautiful view of the night sky.</p>
+              <p><strong>What I didn’t:</strong> Nothing about the stay itself really stood out in a negative way — the bigger struggle on this trip was absolutely the airport and transportation side of things.</p>
+              <div class="badge">Would I stay here again? Yes — especially with more time to actually enjoy Paris slowly.</div>
+            </div>
+
+            <div class="soft-card">
+              <h3>Booking notes</h3>
+              <ul>
+                <li><strong>Price:</strong> $97.50</li>
+                <li><strong>Best for:</strong> A short Paris stay where you mostly just need a good place to land</li>
+                                <li><strong>Overall:</strong> A simple stay that worked well for a whirlwind stop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="soft-card">
+          <h3>Getting there</h3>
+          <p><strong>Flights / travel:</strong> Do not trust anyone in CDG, at any time. Navigate yourself around and make it work, even if you're two kids from Arkansas trying to find your way through France. Just trust me.</p>
+          <p><strong>Travel cost:</strong> $676.48</p>
+          <p><strong>Special Note:</strong> We flew from DFW, which was about a 4 hour drive from our house. Also, we accidentally parked in the express parking area instead of the remote as we weren't paying attention, which later cost us over $400 for parking fees for three weeks!</p>
+          <p><strong>Arrival notes:</strong> I truly hated dealing with CDG. It felt slow, confusing, expensive, and frustrating from every angle. Ubers were pricey, the airport felt like it took forever to get through, and I never fully got comfortable with the public transit situation while we were there.</p>
+          <p><strong>Recommendation:</strong> No, I would not do it the same way again. I would either build in a lot more time for CDG or try to avoid routing through it entirely because it turned into a complete headache.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="gallery">
+      <div class="container panel">
+        <div class="section-eyebrow">Photo gallery</div>
+        <h2 class="section-title serif">The pictures I want to keep with the trip</h2>
+
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <img src="images/france24/9.JPEG" alt="Film photo on a Parisian side street" />
+            <p>Film photo of me on a Parisian side street</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/8.JPEG" alt="Film selfie in Paris" />
+            <p>Film selfie of us!</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/7.jpg" alt="Drinks near the Eiffel Tower" />
+            <p>Sex on the Beach drinks at Roots & Blooms just a few feet away from the Eiffel Tower</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/6.jpg" alt="Paris building" />
+            <p>Admittedly, I have no idea what this building is, but it looked very cool</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/5.jpg" alt="People watching football in Paris" />
+            <p>Frenchies watching football</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/4.jpg" alt="Eiffel Tower sparkling at night" />
+            <p>See her sparkle and shine!!!</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/3.jpg" alt="View by the Seine" />
+            <p>Which view is better, me or the Seine?</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/2.jpg" alt="Strawberry and Nutella crêpes" />
+            <p>Strawberry & Nutella crêpes... yummm</p>
+          </div>
+
+          <div class="restaurant-card">
+            <img src="images/france24/1.jpg" alt="More football fans in Paris" />
+            <p>Some more football-lovin' Frenchies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="food">
+      <div class="container panel">
+        <div class="section-eyebrow">Food + drink</div>
+        <h2 class="section-title serif">Where we ate and what we ordered</h2>
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <h3>Food notes</h3>
+            <div class="restaurant-meta">
+              <p><strong>What stood out most:</strong> The crêpes, the wine, and the way everything felt better simply because we were in Paris.</p>
+              <p><strong>Overall food vibe:</strong> Delicious, relaxed, and perfectly suited to a romantic city stop.</p>
+              <p><strong>Notes:</strong> Even without a long restaurant list, the food and wine were one of the clearest highlights of the trip. Paris made even the simplest things feel a little prettier and a little more special.</p>
+            </div>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>Reality Check</h3>
+            <p>While the wine & crêpes were truly delicious, the service was poor and the prices were high. This is to be expected in a large city like Paris, especially since, by French law, a 15% service charge is already included in all restaurant, café, and bar prices, and workers are paid a guaranteed, legal living wage with benefits. As a fellow waitress, I try my best to be extremely kind to service workers, but this guy was just not happy we were there. Maybe he had a bad day, maybe we were just American. The world may never know.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel">
+        <div class="section-eyebrow">Daily notes</div>
+        <h2 class="section-title serif">What we did, day by day</h2>
+        <div class="stack" style="margin-top: 26px;">
+          <div class="day-card">
+            <h3>Day 1</h3>
+            <p><strong>Date:</strong> July 16, 2024</p>
+            <p><strong>Main plan:</strong> Make the most of our brief time in Paris by seeing the Eiffel Tower, walking the Seine, eating crêpes, and wandering the city for hours.</p>
+            <p><strong>Best part:</strong> Watching the Eiffel Tower sparkle. It felt every bit as magical and romantic as I wanted it to.</p>
+            <p><strong>Worth repeating?</strong> Absolutely — but with more time and much less airport stress.</p>
+          </div>
+
+                  </div>
+      </div>
+    </section>
+
+    <section id="favorites">
+      <div class="container rating-grid">
+        <div class="rating-card">
+          <h3>Favorites</h3>
+          <p><strong>Best part:</strong> Watching the Eiffel Tower sparkle at night</p>
+                   <p><strong>Best activity:</strong> Walking along the Seine and wandering Paris for hours</p>
+                 </div>
+        <div class="rating-card">
+          <h3>What I’d recommend</h3>
+          <p>Give yourself room to wander. See the Eiffel Tower, walk the Seine, stop for crêpes, drink good wine, and let Paris feel like Paris instead of trying to overplan every minute. Even a short visit can feel magical if you lean into the atmosphere.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d skip</h3>
+          <p>I would skip underestimating CDG. The city itself was lovely, but the airport and getting around were the most frustrating parts of the whole experience. Next time I would plan around that much more carefully.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Outrunning My Feet — France details page</div>
+  </footer>
+</body>
+</html>
