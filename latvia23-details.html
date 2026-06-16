@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latvia Study Abroad Details | Outrunning My Feet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --butter: #f7dfa3;
+      --lemon: #f2d35d;
+      --cream: #fffdf6;
+      --ivory: #fff9ea;
+      --sand: #efe2bf;
+      --sage: #dce9cf;
+      --text: #4e4436;
+      --soft-text: #6d6253;
+      --white: rgba(255, 255, 255, 0.84);
+      --shadow: 0 20px 60px rgba(127, 107, 53, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 24px;
+      --radius-sm: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .page-top {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(247, 223, 163, 0.85), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 233, 207, 0.9), transparent 28%),
+        linear-gradient(180deg, #fffdf6 0%, #fffaf0 100%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.72);
+      border-bottom: 1px solid rgba(239,226,191,0.8);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand-title {
+      font-size: 2.45rem;
+      font-style: italic;
+      color: #6c5b36;
+      line-height: 0.95;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #ab9452;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #655948;
+    }
+
+    nav a:hover { opacity: 0.65; }
+
+    .hero {
+      display: block;
+      padding: 52px 0 76px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #b39748;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      line-height: 0.96;
+      color: #443a2c;
+    }
+
+    .hero-copy {
+      margin-top: 20px;
+      color: var(--soft-text);
+      font-size: 1.03rem;
+      line-height: 1.95;
+      max-width: 100%;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #e3d6af;
+      color: #5d5242;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .hero-card img {
+      height: 470px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      border-radius: 22px;
+      background: #fffaf0;
+      padding: 18px 20px;
+      color: #5b503f;
+      line-height: 1.8;
+    }
+
+    main section { padding: 18px 0 30px; }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-weight: 700;
+      color: #a88f48;
+    }
+
+    .section-title {
+      margin-top: 10px;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1;
+      color: #473d2e;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #efe3c4;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 6px 24px rgba(111, 92, 41, 0.04);
+    }
+
+    .overview-grid,
+    .hotel-grid,
+    .notes-grid,
+    .photo-grid,
+    .rating-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .overview-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .hotel-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .notes-grid { grid-template-columns: 1fr 1fr; }
+    .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .rating-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .info-card,
+    .soft-card,
+    .restaurant-card,
+    .day-card,
+    .rating-card {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .photo-card {
+      border-radius: 24px;
+      padding: 14px;
+      background: #fffdf8;
+      border: 1px solid #efe4c7;
+    }
+
+    .photo-card img {
+      height: auto;
+      border-radius: 18px;
+    }
+
+    .photo-card p {
+      margin-top: 12px;
+      color: #655a4c;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .info-card { background: #fff9e8; }
+    .soft-card { background: #fdfbf5; border: 1px solid #efe4c7; }
+    .restaurant-card { background: #fffdf8; border: 1px solid #efe4c7; }
+    .day-card { background: #fffbef; border: 1px solid #f0e5c8; }
+    .rating-card { background: linear-gradient(180deg, #fff5d4 0%, #fffcef 100%); }
+
+    .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a38a49;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4b4030;
+    }
+
+    .soft-card h3,
+    .restaurant-card h3,
+    .day-card h3,
+    .rating-card h3 {
+      font-size: 2rem;
+      line-height: 1;
+      color: #483e2f;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .soft-card p,
+    .restaurant-card p,
+    .day-card p,
+    .rating-card p,
+    .soft-card li,
+    .restaurant-card li {
+      margin-top: 12px;
+      color: #655a4c;
+      line-height: 1.85;
+      font-size: 0.97rem;
+    }
+
+    ul { padding-left: 18px; }
+    .stack { display: grid; gap: 18px; }
+    .restaurant-meta { margin-top: 12px; display: grid; gap: 10px; }
+
+    .badge {
+      display: block;
+      width: fit-content;
+      margin: 18px auto 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: #fff7dc;
+      color: #6a5b3b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(127, 107, 53, 0.06);
+    }
+
+    .back-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--lemon); color: #4a3f2b; }
+    .btn-secondary { background: rgba(255,255,255,0.85); border: 1px solid #decfa3; color: #5d5242; }
+
+    footer {
+      padding: 26px 0 48px;
+      text-align: center;
+      color: #8b7f6e;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1180px) {
+      .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero,
+      .overview-grid,
+      .hotel-grid,
+      .notes-grid,
+      .photo-grid,
+      .rating-grid { grid-template-columns: 1fr; }
+      .hero { padding: 42px 0 62px; }
+      .hero-card img { height: 380px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .panel,
+      .info-card,
+      .soft-card,
+      .restaurant-card,
+      .day-card,
+      .rating-card { padding: 20px; }
+      .photo-card { padding: 12px; }
+      h1 { font-size: 2.8rem; }
+      .brand-title { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-top">
+    <header>
+      <div class="container nav-wrap">
+        <div>
+          <div class="brand-title serif">Outrunning My Feet</div>
+          <div class="brand-subtitle">Outgrowing My Shoes</div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#stay">Stay</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#food">Food</a>
+          <a href="#favorites">Favorites</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <div class="container hero">
+        <div>
+          <div class="eyebrow">• Latvia •</div>
+          <h1 class="serif">A Summer in Someone Else’s Home</h1>
+          <p class="hero-copy">
+            Two days after graduating high school, I got on a plane for the first time to go on a conservation trip in Maui, Hawaii. I didn't have my phone (for the sake of unplugging and getting back to nature), my parents, or any clue how to navigate an airport. Nevertheless, I persevered, my head filled with thoughts of "I can't go back now." While I had spent the first 18 years of my life vowing to never return to Arkansas once I made it out and stating quite matter-of-factly that I would see every country in the world and become the next Anthony Bourdain, now that the time had come to put boots on the ground, I was terrified.
+          </p>
+   <p class="hero-copy">
+To save you reading two blogs at once, I'll cut my Hawaii 2023 story short there and get onto the Latvian-ness of it all. Maui pushed my limits as a person, and made me scared to travel again. I was terrified to tell my parents that the life that I had been exclaiming from the mountaintops since I was old enough to speak was not as glamorous as I had pictured. The two songs that played on repeat during my island adventure happened to be Closing Time by Semisonic ("It's time for you to go out to the places you will be from") and Take Me Home Country Roads. Because I was set to leave for Latvia about a week after getting home from Maui, I had a short window of time to work through the cognitive dissonance of letting the country roads take me home or going out to the places I will be from.
+ </p>
+<p class="hero-copy">
+I made what happened to be the best decision of my life, and chose the latter. The first time I went to Latvia it was an educational study abroad trip through a program called NSLI-Y (shoutout to one of my favorite organizations on Earth). The deal was that they would send me to a school and a host family in one of the possible countries (Kazakhstan, Kyrgyzstan, Latvia, or Estonia) on the condition that I learned Russian. I had already been picking up Russian because my high school French professor wanted me to challenge myself more after receiving my biliteracy seal, so that was an easy handshake for me.
+</p>
+<p class="hero-copy">
+I filled out lots of paperwork, took a few interviews, and received my acceptance letter, along with about 10 other kids. One of the other students came from the same high school as me, but we weren't particularly close. Nonetheless, it was comforting to see a familiar face upon landing in Washington D.C. for orientation. She went on to become one of my lifelong best friends, and made me a better woman overall.
+</p>
+<p class="hero-copy">
+Because I am the most social person on the planet, I had already introduced my entire Latvian family to my American family through FaceTimes and Facebook Messenger. My host mother (Olga) did a fabulous job of comforting my poor, devastated parents. I remember turning around to walk away from my dad when he dropped me off at the airport, trying to hide the fact that I was crying at the thought of leaving them. I saw my dad shed a tear or two, and I was inconsolable in the Little Rock one terminal airport for the next 20 minutes. Eventually, I found Madison and we were pretty much inseparable after that. Upon arriving at orientation, it became abundantly clear that these two Arkansas girls were going to have to stick together in a crowd of inner city kids.</p>
+<p class="hero-copy">
+Orientation time was a series of classes meant to dampen the culture shock as much as possible so that we would be able to focus on learning a language and settling into our host family. We flew from D.C. to Frankfurt, and then to Riga. My host parents picked me up with a bouquet of flowers and immediately started speaking Russian to me. I was exhausted from the travel mess that had been the last few days and scared to be in a new place. Luckily, Olga could see how overwhelmed I was and quickly put her maternal instincts to work. We got home, and she gave me a tour of the cutest apartment I've ever seen. She made me some stellar finger sandwiches and let me sleep until the next day. 
+</p>
+<p class="hero-copy">
+I woke up around 1 a.m. and it looked to be about 7 a.m. outside. This is when I realized that I had gone so far north that the sun was now on a different rotational path than the one I had witnessed for the last 18 years. I closed my eyes and smiled at the thought of being anywhere but Arkansas, savoring the bittersweetness of the moment.
+</p>
+<p class="hero-copy">
+School was fun, challenging, and rewarding. It was more than just language classes. We had guest speakers each week, field trips, history lessons, and food lessons, all in 100% immersion Russian. The journal that I kept to write down vocabulary is one of my most prized possessions to this day. 
+</p>
+<p class="hero-copy">
+With the help of Olga, I quickly picked up how to navigate around the city. God specifically picked this family for me, complete with a daughter (Anya) who was my age, and in my opinion, the coolest girl ever. My host father (Vitaly) knew little to no English, so he was the biggest reason I was able to learn street Russian. We frequently took the dog, Frenchie, on walks around our neighborhood, bonding over rock and roll songs and jokes. </p>
+<p class="hero-copy">
+I'm not sure that I'll ever be able to express how much of an impression this family made on me. We still talk frequently, and I feel homesick for them just as much as I did my American parents while in Latvia. They took me into their home and it was impossible to tell that I was not truly one of their own. I have so many fond memories of meals, trips, and experiences with them where I felt right at home in a country thousands of miles away. This, of course, only made me more jealous of Anya that she got to live with them full time.
+</p>
+<p class="hero-copy">
+I spent my days going to school, and my nights out on the town. The possibilities seemed endless and there was always somewhere new to explore. Every song I listened to was the new soundtrack of my life. I could recite the "Nākamā pietura: Grīziņkalns" with my eyes closed on the public transport. Part of it was the magic that is being 18 and seeing your dream life play out in front of you and part of it was the magnetic pull of Riga.
+</p>
+          <div class="pill-row">
+            <div class="pill">Summer 2023</div>
+            <div class="pill">Riga + Jūrmala + Cēsis + weekend trips</div>
+            <div class="pill">Study abroad, language learning, found family</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section id="overview">
+      <div class="container panel">
+        <h2 class="section-title serif">The quick snapshot</h2>
+        <div class="overview-grid" style="margin-top: 26px;">
+          <div class="info-card">
+            <div class="label">Dates</div>
+            <div class="value">June, July, August 2023</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Where I stayed</div>
+            <div class="value">With my host parents in Riga</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Trip style</div>
+            <div class="value">Study abroad, language learning, cultural immersion, and the beginning of everything</div>
+          </div>
+          <div class="info-card">
+            <div class="label">Overall rating</div>
+            <div class="value">9.5 / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay">
+      <div class="container panel hotel-grid">
+        <div>
+          <div class="section-eyebrow">Where I stayed</div>
+          <h2 class="section-title serif">Stay details</h2>
+          <div class="stack" style="margin-top: 24px;">
+            <div class="soft-card">
+              <h3>Host family home</h3>
+              <p><strong>Name:</strong> My host parents’ house</p>
+              <p><strong>Area:</strong> Iļģuciems, Riga</p>
+              <p><strong>What I liked:</strong> Everything. This was not just a place to stay — it was the place that made the whole experience what it was. My host parents became real parents for me, and the home itself became tied to safety, growth, learning, and so much love. It is one of the most meaningful places in my life.</p>
+              <p><strong>What I didn’t:</strong> Nothing at all. This part of the experience was one of the greatest gifts I have ever been given.</p>
+              <div class="badge">Would I stay here again? In a heartbeat</div>
+            </div>
+
+            <div class="soft-card">
+              <h3>Weekend trip stay</h3>
+              <p><strong>Name:</strong> Weekend hotel in Palanga / Liepāja trip</p>
+              <p><strong>Area:</strong> Palanga / Liepāja</p>
+              <p><strong>What I liked:</strong> Getting to branch out from Riga and see more of the Baltic coast made the whole summer feel even bigger. Weekend trips like this added so much texture to the experience.</p>
+              <p><strong>What I didn’t:</strong> Nothing major — this part just felt like an extra layer of adventure built into an already incredible summer.</p>
+              <div class="badge">Would I do it again? Absolutely</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="soft-card">
+          <h3>Getting there</h3>
+          <p><strong>Travel:</strong> Flew with school</p>
+          <p><strong>Travel cost:</strong> $0.00</p>
+          <p><strong>Rental car:</strong> None</p>
+          <p><strong>Arrival notes:</strong> Arrival was so easy because my host parents picked me up and immediately made me feel welcomed. They gave me a tour of the town, and there were people everywhere in traditional Latvian dress for the Song and Dance Festival, which made the very first impression feel especially beautiful and unforgettable.</p>
+          <p><strong>Recommendation:</strong> I am too old for study abroad now, but it was one of the best things I have ever done for myself. I would recommend a summer like this to just about any young person willing to throw themselves into something new.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="padding-top: 42px;">
+      <div class="container panel">
+        <div class="section-eyebrow">Photo gallery</div>
+        <h2 class="section-title serif">Little pieces of that summer</h2>
+
+        <div class="photo-grid" style="margin-top: 30px;">
+          
+          <div class="photo-card">
+            <img src="images/Latvia23/4DA22FCB-CD27-4A02-94C7-65B217EDDB10.jpg" alt="Latvia 2023 photo" />
+            <p>Statue in Old Town titled The Ghost, which represents what the ghost might me hiding in relation to what we hide within ourselves. </p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/7A9FAFD9-F56E-4DCB-9F7A-713F1F1B3AC7.JPEG" alt="Latvia 2023 photo" />
+            <p>The most beautiful church after a day exploring Cesis.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/8C40EADE-0124-4243-9F61-71CDD132EE85.JPEG" alt="Latvia 2023 photo" />
+            <p>House of the Blackheads  (Melngalvju nams) is a richly decorated landmark in Old Town. Originally built in 1334, it served as a lively gathering place and banquet hall for the Brotherhood of the Blackheads—a guild of wealthy, unmarried foreign merchants and shipowners.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/8E70EDEE-F97C-4F1E-ABDB-9421F6B7D79E.jpg" alt="Latvia 2023 photo" />
+            <p>Latvian Parliament field trip.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/29C5EFAD-314E-4369-AE65-F0B010DE15B1.jpg" alt="Latvia 2023 photo" />
+            <p>According to local legend, the wealthy Latvian merchant who owned the building was denied membership in the prestigious, German-dominated Great Guild located across the street. To spite them, he placed the two cat statues on his roof with their rear ends aimed directly at the guild hall. This provocative gesture sparked a lawsuit, which resulted in the cats being turned around to face the guild, as they remain today.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/29F6108C-8C38-4F19-9221-7BADDECC8768.jpg" alt="Latvia 2023 photo" />
+            <p>Church walls, cloudy skies, and the kind of Old Town corners I'll always return to. Just around this corner was Ogle Pizza, which was to die for.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/1212B712-3188-43F4-9EC7-E406A5291247.jpg" alt="Latvia 2023 photo" />
+            <p>A computer screen on the parliament field trip that showcased the current world news.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/ASDFG.jpg" alt="Latvia 2023 photo" />
+            <p>Everyday Riga streets slowly becoming familiar.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/E35F521F-87F3-4A8C-9BE5-4CC0B37603FC.jpg" alt="Latvia 2023 photo" />
+            <p>The big pink church directly outside my school. Just outside the frame of this photo is the cafe where we ate lunch at every day. This was my everyday view for the summer.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2505.JPEG" alt="Latvia 2023 photo" />
+            <p>Maxima store just a few minutes from home. Zoom in to see the tentacles! Since we were right on the Baltic sea, seafood was pretty popular. Fun fact: you can tell how big a Maxima (market) is based on how many X's are in the name. Maxima = small, Maxxima = medium, Maxxxima = large.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2889.JPEG" alt="Latvia 2023 photo" />
+            <p>"Infected" sign on a mannequin wearing a nuclear warfare protection suit.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3134.JPEG" alt="Latvia 2023 photo" />
+            <p>One of the largest markets in Europe, Riga Central Market.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3372.JPEG" alt="Latvia 2023 photo" />
+            <p>Celebrating Anya's graduation with some champagne and fried ice cream!</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3605.JPEG" alt="Latvia 2023 photo" />
+            <p>View from inside the KGB museum. Truly a horrific site. Other photos from this field trip have been redacted from the blog because of how upsetting they are.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3655.JPEG" alt="Latvia 2023 photo" />
+            <p>Statue from the Latvian Occupation Museum.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3758.JPEG" alt="Latvia 2023 photo" />
+            <p>Cesis Castle, because Latvia never runs out of amazing stuff to explore.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4197.JPEG" alt="Latvia 2023 photo" />
+            <p>Abandoned Riga Airport mural.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_5101.JPEG" alt="Latvia 2023 photo" />
+            <p>Zoom in to see the reflection of Madison and I on a night on the town. While I can't write about the hilarious memories we made this night, you'll have to trust that I will remember it forever.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3003.JPG" alt="Latvia 2023 photo" />
+            <p>My soul sister from another mister.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3019.JPEG" alt="Latvia 2023 photo" />
+            <p>Three of the most important people to me at the time on the Liepaja pier.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3290.JPG" alt="Latvia 2023 photo" />
+            <p>Ice skating with Izzy after school. Izzy went on to do another year with NSLI-Y in Kyrgystan!</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3387.JPEG" alt="Latvia 2023 photo" />
+            <p>50 shots for 25 cents! Note the Iphone screwed into the bar.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3398.JPEG" alt="Latvia 2023 photo" />
+            <p>The slight shaking of the train can lull me to sleep even today. I gained the special skill of being able to wake up right before I had to get off after having taken the route from home to Jurmala (the beach) so often.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3417.JPEG" alt="Latvia 2023 photo" />
+            <p>A pizza that deserved documentation. Pickles, onions, bbq sauce, and chicken.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3432.JPEG" alt="Latvia 2023 photo" />
+            <p>A regular breakfast for me that I've adopted back home. It'll never be as good here as it was when it was made with such love by Olga.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3575.JPEG" alt="Latvia 2023 photo" />
+            <p>Lavender fields and family, which is a pretty perfect combination.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3797.JPEG" alt="Latvia 2023 photo" />
+            <p>Climbing through the narrow stairwells of the Cesis castle by torchlight..</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3837.JPEG" alt="Latvia 2023 photo" />
+            <p>Potato pancakes (Draniki) and plum smoothie. Seriously delicious. Latvia is the only place on Earth that has been able to match my love for sour cream.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3839.JPEG" alt="Latvia 2023 photo" />
+            <p>Russian lessons, classroom routines, and the reason I was there in the first place.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3853.JPEG" alt="Latvia 2023 photo" />
+            <p>Salmon, salad, and potatoes for dinner with the parentals.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3946.JPG" alt="Latvia 2023 photo" />
+            <p>One of the many guest speakers who took the learning beyond the classroom.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3947.JPG" alt="Latvia 2023 photo" />
+            <p>Madison and I dipping our toes into more history. While we definitely played hard, we also worked hard! ;)</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3949.JPG" alt="Latvia 2023 photo" />
+            <p>History coming alive in the most hands-on way possible.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4253.JPEG" alt="Latvia 2023 photo" />
+            <p>Movie-night smiles with the people who made the trip fun. We watched Oppenheimer the week it came out on the biggest screen you can imagine!</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4763.JPEG" alt="Latvia 2023 photo" />
+            <p>Latvian national library!</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4773.JPEG" alt="Latvia 2023 photo" />
+            <p>Posters, streets, and all the layered texture of the city.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4815.JPG" alt="Latvia 2023 photo" />
+            <p>Just looking at this photo brings me back to the warm summer night and the strawberry margaritas we ahd right before this. We couldn't figure out why we weren't able to understand the singer at the concert behind us. It was a Polish concert. We bought Latvian flags that night and waved them around as we walked the streets of Old Town.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4843.JPEG" alt="Latvia 2023 photo" />
+            <p>We woke up early to kayak! Not only was the Latvian countryside absolutely stunning, it reminded me of the times with my family going up the river channels in the 100 degree summers on our pontoon boat.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4892.JPEG" alt="Latvia 2023 photo" />
+            <p>Swimming at my aunt and uncles house and pretending I could live in this version of life forever.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_5203.JPEG" alt="Latvia 2023 photo" />
+            <p>Real travel: stairs, luggage, backpacks, and making it work. Luckily, I had my very strong host papa, Vitaly. He said American girls shouldn't carry bags;)</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_5230.JPEG" alt="Latvia 2023 photo" />
+            <p>The girls who made Latvia feel less far from home.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_5264.JPG" alt="Latvia 2023 photo" />
+            <p>A playground moment, because we can't be professional all of the time.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2477.PNG" alt="Latvia 2023 photo" />
+            <p>In ground trampoline at a park right beside our house.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2514.JPEG" alt="Latvia 2023 photo" />
+            <p>One of my absolute favorite meals. Everything that Olga made was delicious. Not to mention, Vitaly's kebabs (shashliks) that I still dream about.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_3893.JPEG" alt="Latvia 2023 photo" />
+            <p>Traditional American-Girl-Studying-In-Latvia-Dinner with friends.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4175.JPG" alt="Latvia 2023 photo" />
+            <p>Wild and free in Riga</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4298.JPEG" alt="Latvia 2023 photo" />
+            <p>Shortly after being picked up selfies to show my parents I had landed safely. I had no idea how much these people would mean to me over the next few months.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_4878.JPEG" alt="Latvia 2023 photo" />
+            <p>The best papa and uncle, portrying the "Classic Russian Man"</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/0f9e05ec-dad4-4642-955d-59201e3ce5a7.jpg" alt="Latvia 2023 photo" />
+            <p>One of our mentors, Peter from New York. This dude was a master class on how to navigate scary travel situations and how to make friends become family abroad. He was killer at Russian and one of the most interesting people I've ever met.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/8EE2B8DA-62F8-4D20-943F-25E85D86B436.jpg" alt="Latvia 2023 photo" />
+            <p>A motto for the summer.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/29C67569-45D7-49F4-AE0C-4EDCA39F0851.jpg" alt="Latvia 2023 photo" />
+            <p>Underground bar in Old Town.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/895cc456-8738-4868-9bc3-4bb05089c822.jpg" alt="Latvia 2023 photo" />
+            <p>A group photo on the last day of school.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/94585D18-2CBE-453B-B60E-576E75EF4C50.jpg" alt="Latvia 2023 photo" />
+            <p>Latvian peace on the Daugava river.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/B2AF5DB0-1373-4776-959B-83901206EF3C.jpg" alt="Latvia 2023 photo" />
+            <p>He is the reason I'm so good at billiards now.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/C55C1DCC-BF05-4901-9046-C0EDA29740C9.jpg" alt="Latvia 2023 photo" />
+                      </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/C777F542-54C5-4978-BD9B-07AFE20EFF90.jpg" alt="Latvia 2023 photo" />
+                     </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/f6187ac3-5400-4ffb-b466-53e461b4805a.jpg" alt="Latvia 2023 photo" />
+            <p>Learning history in rooms where it felt impossible to ignore.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/FF9C33B5-97FC-40CF-8041-A0D3A68BB902.jpg" alt="Latvia 2023 photo" />
+            <p>The Riga Freedom Monument</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2456.JPEG" alt="Latvia 2023 photo" />
+            <p>The airport arrival moment, suitcases and all.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2482.JPEG" alt="Latvia 2023 photo" />
+            <p>This photo was taken at 3 a.m.!</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2733.JPG" alt="Latvia 2023 photo" />
+            <p>Exploring</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2879.JPEG" alt="Latvia 2023 photo" />
+            <p>The familiar face that became one of the best parts of the whole story.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2893.JPEG" alt="Latvia 2023 photo" />
+            <p>Exploring an old KGB underground bunker.</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2915.JPEG" alt="Latvia 2023 photo" />
+            <p>Wall sits to experience what the prisoners had gone through</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2916.JPEG" alt="Latvia 2023 photo" />
+            <p>A scratched-up wall of names, proof that people are always trying to leave something behind. One of the notes states "I want to go home."</p>
+          </div>
+
+          <div class="photo-card">
+            <img src="images/Latvia23/IMG_2955.JPEG" alt="Latvia 2023 photo" />
+            <p>Wind turbines, big skies, and one more view I wanted to keep.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="food">
+      <div class="container panel">
+        <div class="section-eyebrow">Food + drink</div>
+        <h2 class="section-title serif">The flavors I remember most</h2>
+        <div class="notes-grid" style="margin-top: 26px;">
+          <div class="restaurant-card">
+            <h3>What I remember</h3>
+            <p>This was not one single restaurant memory. It was finger sandwiches from Olga after a long travel day, market snacks, fresh bread, little cafés, cherries, pizza with friends, and meals that became part of the rhythm of living there.</p>
+            <p>Food in Latvia felt tied to daily life more than vacation highlights. It was not just what I ate — it was who I ate with, what language I was trying to speak, and which street I was learning to recognize on the way home.</p>
+          </div>
+
+          <div class="restaurant-card">
+            <h3>Little food memories</h3>
+            <ul>
+              <li>Old Town always seemed to have something worth trying.</li>
+              <li>The markets made the city feel alive, local, and familiar.</li>
+              <li>Family meals with my host parents became some of the warmest parts of the summer.</li>
+              <li>Some of the best memories came from ordinary meals on ordinary days.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container panel">
+        <div class="section-eyebrow">Daily life + highlights</div>
+        <h2 class="section-title serif">What made this summer unforgettable</h2>
+        <div class="stack" style="margin-top: 26px;">
+          <div class="day-card">
+            <h3>Riga</h3>
+            <p><strong>Main experience:</strong> Living in Riga, learning the city, learning the language, and slowly letting it become one of the most beloved places in my entire life.</p>
+            <p><strong>Best part:</strong> Riga became my favorite city on Earth. The architecture, the history, the feeling of Old Town — it all felt deep, beautiful, and full of life.</p>
+            <p><strong>Worth repeating?</strong> Forever</p>
+          </div>
+
+          <div class="day-card">
+            <h3>The people</h3>
+            <p><strong>Main experience:</strong> Building a real relationship with my host parents and finding a sense of family so far from home.</p>
+            <p><strong>Best part:</strong> They became real parents to me, and that kind of love changed the emotional shape of the entire trip.</p>
+            <p><strong>Worth repeating?</strong> More than anything</p>
+          </div>
+
+          <div class="day-card">
+            <h3>Weekend trips</h3>
+            <p><strong>Main experience:</strong> Exploring places like Jūrmala, Cēsis, and the Baltic coast on weekend trips that made the whole summer feel even richer.</p>
+            <p><strong>Best part:</strong> Realizing how much Latvia and the surrounding region had to offer beyond just one city.</p>
+            <p><strong>Worth repeating?</strong> Absolutely</p>
+          </div>
+
+          <div class="day-card">
+            <h3>What changed in me</h3>
+            <p><strong>Main experience:</strong> Discovering travel in a real way for the first time and understanding just how much the world has to offer.</p>
+            <p><strong>Best part:</strong> This summer introduced me to a bigger life. It made me braver, more curious, and more open to the idea that home can exist in more than one place.</p>
+            <p><strong>Worth repeating?</strong> It already echoes through everything I do now</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="favorites">
+      <div class="container rating-grid">
+        <div class="rating-card">
+          <h3>Favorites</h3>
+          <p><strong>Best place:</strong> Riga</p>
+          <p><strong>Best side trip:</strong> Jūrmala and Cēsis</p>
+          <p><strong>Best hidden gem feeling:</strong> The Baltic coast and weekend escapes</p>
+          <p><strong>Best little moment:</strong> Realizing at some point that Latvia had stopped feeling foreign and started feeling like part of me.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d recommend</h3>
+          <p>I would recommend a summer abroad to every brave eighteen-year-old willing to throw themselves into the unknown. Learn a new language, let yourself be uncomfortable, let yourself be changed, and trust that the world has so much more to offer than what you can see from home.</p>
+        </div>
+        <div class="rating-card">
+          <h3>What I’d skip</h3>
+          <p>Honestly, very little. If anything, I would only wish I had known while I was in it just how foundational this summer would become for the rest of my life. It was incredible from beginning to end.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Outrunning My Feet — Latvia study abroad details page</div>
+  </footer>
+</body>
+</html>
