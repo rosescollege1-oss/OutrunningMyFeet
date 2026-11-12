@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Whole Journey | Outrunning My Feet</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Whole Journey | Outrunning My Feet</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --butter: #f7dfa3;
       --lemon: #f2d35d;
@@ -369,401 +370,279 @@
         width: 100%;
       }
     }
-  </style>
+  
+/* Single chronological archive: five cards across on desktop. */
+.container { width: min(1600px, calc(100% - 40px)); }
+.trip-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.trip-card img { height: 185px; }
+.trip-card-content { padding: 18px 14px; }
+.trip-title { font-size: 1.45rem; }
+.trip-text { font-size: 0.86rem; }
+@media (max-width: 1250px) { .trip-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1000px) { .trip-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .trip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .trip-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
-  <div class="page-top">
-    <header>
-      <div class="container nav-wrap">
-        <div>
-          <div class="brand-title serif">Outrunning My Feet</div>
-          <div class="brand-subtitle">Outgrowing My Shoes</div>
-        </div>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="#beach">Beach</a>
-          <a href="#city">City</a>
-          <a href="#nature">Nature</a>
-          <a href="#international">International</a>
-          <a href="#europe-2024">Europe 2024</a>
-        </nav>
-      </div>
-    </header>
+<div class="page-top">
+<header>
+<div class="container nav-wrap">
+<div>
+<div class="brand-title serif">Outrunning My Feet</div>
+<div class="brand-subtitle">Outgrowing My Shoes</div>
+</div>
+<nav><a href="index.html">Home</a><a href="#all-trips">All Trips</a></nav>
+</div>
+</header>
+<section class="hero">
+<div class="container">
+<h1 class="serif">The Whole Journey</h1>
+</div>
+</section></div>
 
-    <section class="hero">
-      <div class="container">
-        <h1 class="serif">The Whole Journey</h1>
-                </div>
-      </div>
-    </section>
-  </div>
 
-  <main>
-    <section>
-      <div class="container">
-        <div class="panel">
-          <h2 class="section-title serif">Pick a path through it</h2>
-          <div class="quick-links">
-            <a href="#beach">Beach Days</a>
-            <a href="#city">City Escapes</a>
-            <a href="#nature">Nature + Quiet</a>
-            <a href="#international">Farther From Home</a>
-            <a href="#europe-2024">Europe 2024 Collection</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="europe-2024" class="section-block">
-      <div class="container">
-        <div class="panel">
-          <div class="section-eyebrow" style="text-align:center;">Collection</div>
-          <h2 class="section-title serif">Backpacked Europe, Summer 2024</h2>
-          <p class="section-copy">
-            One trip, many stops, and a hundred little stories between them. This felt better as a collection than as a wall of separate cards, because it really was one long memory.
-          </p>
-
-          <div class="trip-grid">
-            <article class="trip-card">
-              <img src="images/CoverPhotos/london_cover.JPEG" alt="London" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">London</h3>
-                <p class="trip-text">Brilliant Innit?</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="london-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/netherlands_cover.jpg" alt="Netherlands" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Netherlands</h3>
-                <p class="trip-text">Bikes. Backpacks. (B)Mango Sticky Rice?</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="netherlands-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/spain_cover.jpg" alt="Spain" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Spain</h3>
+<main><section class="section-block" id="all-trips"><div class="container"><div class="panel"><div class="section-eyebrow" style="text-align:center;">The travel archive</div><h2 class="section-title serif">Every Adventure</h2><p class="section-copy">Every trip, every memory, all in one place. From the newest adventures to the ones that started it all.</p><div class="trip-grid"><article class="trip-card">
+<img alt="East Coast Road Trip 2026" loading="lazy" onerror="this.onerror=null;this.src='images/CoverPhotos/tennessee_cover.JPEG';" src="images/CoverPhotos/east_coast_26_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">October 2026</div>
+<h3 class="trip-title serif">East Coast Road Trip</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/italy_cover.JPEG" alt="Italy" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Italy</h3>
+<div class="mini-buttons"><a class="mini-btn primary" href="coming-soon.html">Details</a></div>
+</div>
+</article><article class="trip-card">
+<img alt="Hawaii 2026" loading="lazy" onerror="this.onerror=null;this.src='images/CoverPhotos/hawaii_25_cover.JPEG';" src="images/CoverPhotos/hawaii_26_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">September 2026</div>
+<h3 class="trip-title serif">Hawaii 2026</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/france_cover.jpg" alt="France" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">France</h3>
+<div class="mini-buttons"><a class="mini-btn primary" href="coming-soon.html">Details</a></div>
+</div>
+</article><article class="trip-card">
+<img alt="Puerto Rico" loading="lazy" src="images/CoverPhotos/pr_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">March 2026</div>
+<h3 class="trip-title serif">Puerto Rico</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Japan" loading="lazy" src="images/CoverPhotos/japan_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">January 2026</div>
+<h3 class="trip-title serif">Japan</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Florida" loading="lazy" src="images/CoverPhotos/florida_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">December 2025</div>
+<h3 class="trip-title serif">Florida</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="New Orleans" loading="lazy" src="images/CoverPhotos/nola_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">December 2025</div>
+<h3 class="trip-title serif">New Orleans</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Hawaii 2025" loading="lazy" src="images/CoverPhotos/hawaii_25_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">September 2025</div>
+<h3 class="trip-title serif">Hawaii</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Oklahoma" loading="lazy" src="images/CoverPhotos/oklahoma_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">August 2025</div>
+<h3 class="trip-title serif">Oklahoma</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Tennessee" loading="lazy" src="images/CoverPhotos/tennessee_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">June 2025</div>
+<h3 class="trip-title serif">Tennessee</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Texas 2025" loading="lazy" src="images/CoverPhotos/texas_25_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">March 2025</div>
+<h3 class="trip-title serif">Texas</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="London" loading="lazy" src="images/CoverPhotos/london_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">London</h3>
+<p class="trip-text">Brilliant Innit?</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="london-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Netherlands" loading="lazy" src="images/CoverPhotos/netherlands_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Netherlands</h3>
+<p class="trip-text">Bikes. Backpacks. (B)Mango Sticky Rice?</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="netherlands-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Spain" loading="lazy" src="images/CoverPhotos/spain_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Spain</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Italy" loading="lazy" src="images/CoverPhotos/italy_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Italy</h3>
+<p class="trip-text">Coming Soon...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="France" loading="lazy" src="images/CoverPhotos/france_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">France</h3>
 <p class="trip-text">Stranded in the City of Romance</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="france-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/germany_cover.jpg" alt="Germany" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Germany</h3>
-                <p class="trip-text">A Bad Hot Dog & A Walk Along the River</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="germany-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/latvia_24_cover.JPEG" alt="Latvia" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Latvia</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="france-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Germany" loading="lazy" src="images/CoverPhotos/germany_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Germany</h3>
+<p class="trip-text">A Bad Hot Dog &amp; A Walk Along the River</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="germany-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Latvia" loading="lazy" src="images/CoverPhotos/latvia_24_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Latvia</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/lithuania_cover.jpg" alt="Lithuania" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Lithuania</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Lithuania" loading="lazy" src="images/CoverPhotos/lithuania_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Lithuania</h3>
 <p class="trip-text">Does Lithuania have gravity too?</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="lithuania-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/poland_cover.jpg" alt="Poland" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Poland</h3>
-                <p class="trip-text">Lessons Learned...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="poland-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/croatia_cover.jpg" alt="Croatia" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Croatia</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="lithuania-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Poland" loading="lazy" src="images/CoverPhotos/poland_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Poland</h3>
+<p class="trip-text">Lessons Learned...</p>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="poland-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Croatia" loading="lazy" src="images/CoverPhotos/croatia_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Croatia</h3>
 <p class="trip-text">A Lesson In Perspective</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="croatia-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="beach" class="section-block">
-      <div class="container">
-        <div class="panel">
-          <div class="section-eyebrow" style="text-align:center;">Destination type</div>
-          <h2 class="section-title serif">Beach Days</h2>
-
-          <div class="trip-grid">
-            <article class="trip-card">
-              <img src="images/CoverPhotos/pr_cover.jpg" alt="Puerto Rico" />
-              <div class="trip-card-content">
-                <div class="trip-date">March 2026</div>
-                <h3 class="trip-title serif">Puerto Rico</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="croatia-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Petit Jean" loading="lazy" src="images/CoverPhotos/petit_jean_cover.jpg"/>
+<div class="trip-card-content">
+<div class="trip-date">July 2024</div>
+<h3 class="trip-title serif">Petit Jean</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/florida_cover.JPEG" alt="Florida" />
-              <div class="trip-card-content">
-                <div class="trip-date">December 2025</div>
-                <h3 class="trip-title serif">Florida</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Texas 2024" loading="lazy" src="images/CoverPhotos/texas_24_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">June 2024</div>
+<h3 class="trip-title serif">Texas</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/hawaii_25_cover.JPEG" alt="Hawaii 2025" />
-              <div class="trip-card-content">
-                <div class="trip-date">September 2025</div>
-                <h3 class="trip-title serif">Hawaii</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/hawaii_23_cover.JPEG" alt="Hawaii 2023" />
-              <div class="trip-card-content">
-                <div class="trip-date">June 2023</div>
-                <h3 class="trip-title serif">Hawaii, My First Solo Trip</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="city" class="section-block">
-      <div class="container">
-        <div class="panel">
-          <div class="section-eyebrow" style="text-align:center;">Destination type</div>
-          <h2 class="section-title serif">City Escapes</h2>
-
-          <div class="trip-grid">
-            <article class="trip-card">
-              <img src="images/CoverPhotos/nola_cover.jpg" alt="New Orleans" />
-              <div class="trip-card-content">
-                <div class="trip-date">December 2025</div>
-                <h3 class="trip-title serif">New Orleans</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/japan_cover.jpg" alt="Japan" />
-              <div class="trip-card-content">
-                <div class="trip-date">January 2026</div>
-                <h3 class="trip-title serif">Japan</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/texas_25_cover.JPEG" alt="Texas 2025" />
-              <div class="trip-card-content">
-                <div class="trip-date">March 2025</div>
-                <h3 class="trip-title serif">Texas</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/texas_24_cover.JPEG" alt="Texas 2024" />
-              <div class="trip-card-content">
-                <div class="trip-date">June 2024</div>
-                <h3 class="trip-title serif">Texas</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="nature" class="section-block">
-      <div class="container">
-        <div class="panel">
-          <div class="section-eyebrow" style="text-align:center;">Destination type</div>
-          <h2 class="section-title serif">Nature + Quiet</h2>
-
-          <div class="trip-grid">
-            <article class="trip-card">
-              <img src="images/CoverPhotos/tennessee_cover.JPEG" alt="Tennessee" />
-              <div class="trip-card-content">
-                <div class="trip-date">June 2025</div>
-                <h3 class="trip-title serif">Tennessee</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/petit_jean_cover.jpg" alt="Petit Jean" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Petit Jean</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/oklahoma_cover.JPEG" alt="Oklahoma" />
-              <div class="trip-card-content">
-                <div class="trip-date">August 2025</div>
-                <h3 class="trip-title serif">Oklahoma</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="international" class="section-block">
-      <div class="container">
-        <div class="panel">
-          <div class="section-eyebrow" style="text-align:center;">Destination type</div>
-          <h2 class="section-title serif">Farther From Home</h2>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/japan_cover.jpg" alt="Japan" />
-              <div class="trip-card-content">
-                <div class="trip-date">January 2026</div>
-                <h3 class="trip-title serif">Japan</h3>
-<p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/latvia_23_cover.JPEG" alt="Latvia 2023" />
-              <div class="trip-card-content">
-                <div class="trip-date">June / August 2023</div>
-                <h3 class="trip-title serif">Latvia</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Latvia 2023" loading="lazy" src="images/CoverPhotos/latvia_23_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">June / August 2023</div>
+<h3 class="trip-title serif">Latvia</h3>
 <p class="trip-text">Work Hard, Play Hard</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="latvia23-details.html">Details</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="trip-card">
-              <img src="images/CoverPhotos/spain_cover.jpg" alt="Spain" />
-              <div class="trip-card-content">
-                <div class="trip-date">July 2024</div>
-                <h3 class="trip-title serif">Spain</h3>
+<div class="mini-buttons">
+<a class="mini-btn primary" href="latvia23-details.html">Details</a>
+</div>
+</div>
+</article><article class="trip-card">
+<img alt="Hawaii 2023" loading="lazy" src="images/CoverPhotos/hawaii_23_cover.JPEG"/>
+<div class="trip-card-content">
+<div class="trip-date">June 2023</div>
+<h3 class="trip-title serif">Hawaii, My First Solo Trip</h3>
 <p class="trip-text">Coming Soon...</p>
-                <div class="mini-buttons">
-                  <a class="mini-btn primary" href="coming-soon.html">Details</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
+<div class="mini-buttons">
+<a class="mini-btn primary" href="coming-soon.html">Details</a>
+</div>
+</div>
+</article></div></div></div></section></main>
+<footer>
+<div class="container">
      Copyright Outrunning My Feet 2026 - Rose Brown - All Rights Reserved
     </div>
-  </footer>
+</footer>
 </body>
 </html>
